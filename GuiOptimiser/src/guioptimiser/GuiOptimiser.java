@@ -28,7 +28,7 @@ public class GuiOptimiser {
     private static String TARGET_APP = "calculator.jar";
     //private static final String TARGET_APP = "simpleApp.jar";
     private static final String TARGET_APP_COLOR = "color.csv";
-    private static final int TARGET_APP_RUNNINGTIME = 1000;
+    private static final int TARGET_APP_RUNNINGTIME = 2000;
     private static final String JAVA_COMMAND = "java -jar ";
     private static String parentDir = "";
 
@@ -56,6 +56,7 @@ public class GuiOptimiser {
         {
             //runApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
             runApp(TARGET_APP, TARGET_APP_RUNNINGTIME);
+            System.out.println(i + ": Screenshot saved successfully!");
             changeColorAll();
         }
 
@@ -66,7 +67,7 @@ public class GuiOptimiser {
             //java -jar C:\Users\Mahmoud-Uni\Documents\NetBeansProjects\calculator\dist\calculator.jar
 
             //path = "\""+path+"\"";
-            System.out.println("Target App" + path);
+            System.out.println("Target App: " + path);
 
             Runtime runTime = Runtime.getRuntime();
             Process process = runTime.exec(JAVA_COMMAND.concat(path));
@@ -85,7 +86,7 @@ public class GuiOptimiser {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Target App");
+            System.out.println("Target App exiting...");
             process.destroy();
         } catch (IOException e) {
             e.printStackTrace();

@@ -28,7 +28,13 @@ public class Capture {
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
             BufferedImage capture = new Robot().createScreenCapture(screenRect);
             fileName = "image-"+System.currentTimeMillis()+".png";
-            ImageIO.write(capture, "png", new File(fileName));
+            // Create the directory if it doesn't exist, for storing the screenshots
+            File directory = new File("screenshots/");
+            if (!directory.exists()) {
+                directory.mkdirs(); // Create directory and parent directories if necessary
+            }
+
+            ImageIO.write(capture, "png", new File(directory, fileName));
         } catch (AWTException ex) {
             Logger.getLogger(Capture.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
