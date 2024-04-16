@@ -52,11 +52,11 @@ public class GuiOptimiser {
         }
         parentDir = getParentDir();
         //System.out.println(parentDir.concat(TARGET_APP));
-        for (int i = 0; i < 5; i++) //RunTargetApp runTargetApp = new RunTargetApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
+        for (int i = 0; i < 5; ) //RunTargetApp runTargetApp = new RunTargetApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
         {
             //runApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
             runApp(TARGET_APP, TARGET_APP_RUNNINGTIME);
-            System.out.println(i + ": Screenshot saved successfully!");
+            System.out.println(++i + ": Screenshot saved to screeshots folder successfully!");
             changeColorAll();
         }
 
