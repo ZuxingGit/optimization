@@ -1,1 +1,13 @@
 /.DS_Store
+GuiOptimiser/screenshots/
+GuiOptimiser/build/built-jar.properties
+GuiOptimiser/build/classes/.netbeans_automatic_build
+GuiOptimiser/build/classes/.netbeans_update_resources
+GuiOptimiser/build/classes/guioptimiser/Capture.class
+GuiOptimiser/build/classes/guioptimiser/GuiOptimiser.class
+GuiOptimiser/dist/GuiOptimiser.jar
+GuiOptimiser/dist/README.TXT
+GuiOptimiser/nbproject/build-impl.xml
+GuiOptimiser/nbproject/genfiles.properties
+GuiOptimiser/nbproject/project.properties
+GuiOptimiser/nbproject/private/private.properties
