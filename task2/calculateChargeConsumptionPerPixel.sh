@@ -11,4 +11,4 @@ fi
 imagePath=$1
 
 # Execute the Java command
-java -jar calculateChargeConsumptionPerPixel.jar "$imagePath"
+java -jar calculateChargeConsumptionPerPixel.jar <$imagePath>
