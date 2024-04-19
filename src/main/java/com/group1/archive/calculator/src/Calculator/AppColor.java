@@ -1,4 +1,4 @@
-package Calculator;
+package com.group1.archive.calculator.src.Calculator;
 
 import java.awt.Color;
 import java.io.BufferedReader;

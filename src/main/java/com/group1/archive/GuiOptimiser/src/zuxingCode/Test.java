@@ -1,4 +1,4 @@
-package zuxingCode;
+package com.group1.archive.GuiOptimiser.src.zuxingCode;
 
 public class Test {
     public static void main(String[] args) {

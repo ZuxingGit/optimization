@@ -1,4 +1,4 @@
-package com.group1.archive.GuiOptimiser.src.zuxingCode;
+package com.group1.task2.part2;
 
 public class Pixel {
     //a = alpha, r = red, g = green, b = blue

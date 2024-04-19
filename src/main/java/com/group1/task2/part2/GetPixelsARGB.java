@@ -1,4 +1,4 @@
-package com.group1.archive.GuiOptimiser.src.zuxingCode;
+package com.group1.task2.part2;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,11 +22,11 @@ public class GetPixelsARGB {
         BufferedImage img = null;
         // File f = null;
         // define the pattern using the * wildcard
-        String pattern = "image-*.png";
+        String pattern = "example*.png";
         // Create a PathMatcher for the specified pattern
         PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:" + pattern);
         // specify the path to the directory for searching
-        Path dir = Paths.get("./GuiOptimiser/screenshots");
+        Path dir = Paths.get("src/main/java/com/group1/task2/part2/");
 
         // read image
         try {

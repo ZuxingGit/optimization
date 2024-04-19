@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Calculator;
+package com.group1.archive.calculator.src.Calculator;
 
 import java.awt.Color;
 import java.awt.color.ColorSpace;
