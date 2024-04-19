@@ -11,3 +11,6 @@ GuiOptimiser/nbproject/build-impl.xml
 GuiOptimiser/nbproject/genfiles.properties
 GuiOptimiser/nbproject/project.properties
 GuiOptimiser/nbproject/private/private.properties
+GuiOptimiser/color.csv
+GuiOptimiser/nbproject/private/private.xml
+GuiOptimiser/build/classes/guioptimiser/GuiOptimiser.class
