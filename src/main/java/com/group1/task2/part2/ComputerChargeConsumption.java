@@ -88,7 +88,7 @@ public class ComputerChargeConsumption {
     public static void main(String[] args) {
         String[] images = {"example1.png", "example2.png", "example3.png"};
         for (String imagePath : images) {
-            System.out.println("=====Processing image: " + imagePath + "=====");
+            System.out.println("===== Processing image: " + imagePath + " =====");
             BufferedImage image = loadImage(imagePath);
             double totalChargeConsumption = calculateTotalChargeConsumption(image);
             System.out.println("Total charge consumption for " + imagePath + ": " + totalChargeConsumption);
