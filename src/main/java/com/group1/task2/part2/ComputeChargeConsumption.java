@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * @author Chung, Zuxing
  */
-public class ComputerChargeConsumption {
+public class ComputeChargeConsumption {
     private static String parentDir = "";
 
     // Define the function to calculate charge consumption for one pixel
