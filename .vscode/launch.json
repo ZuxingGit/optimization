@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GuiOptimiser_SimpleApp",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.guioptimiser.GuiOptimiser_SimpleApp",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "GuiOptimiser_Calculator",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.guioptimiser.GuiOptimiser_Calculator",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "GuiOptimiser2",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.guioptimiser.GuiOptimiser2",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "CalculatorMainFrame",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.gui.CalculatorMainFrame",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "SimpleMainFrame",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.gui.SimpleMainFrame",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
             "name": "ComputeChargeConsumption",
             "request": "launch",
             "mainClass": "com.group1.task2.part2.ComputeChargeConsumption",

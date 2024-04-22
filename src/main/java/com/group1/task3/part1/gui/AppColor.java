@@ -120,7 +120,7 @@ public class AppColor {
             //File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
             //System.out.println(jarDir.getAbsolutePath());
             String dir = (new File("dir").getAbsolutePath().replace("dir", ""));
-            dir = dir + "src/main/java/com/group1/task3/part1/gui/";
+            dir = dir + "src/main/java/com/group1/task3/part1/guioptimiser/";
             System.out.println(dir);
             br = new BufferedReader(new FileReader(new File(dir, csvFile)));
             while ((line = br.readLine()) != null) {

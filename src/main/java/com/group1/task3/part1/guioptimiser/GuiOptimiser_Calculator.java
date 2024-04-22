@@ -29,7 +29,7 @@ public class GuiOptimiser_Calculator {
     private static String TARGET_APP = "com.group1.task3.part1.gui.CalculatorMainFrame";
     //private static final String TARGET_APP = "simpleApp.jar";
     private static final String TARGET_APP_COLOR = "color.csv";
-    private static final int TARGET_APP_RUNNINGTIME = 3000;
+    private static final int TARGET_APP_RUNNINGTIME = 2500;
     // private static final String JAVA_COMMAND = "java -jar ";
     private static String JAVA_COMMAND = "java -cp ";
     private static String parentDir = "";
@@ -56,12 +56,12 @@ public class GuiOptimiser_Calculator {
             }
         }
         // parentDir = getParentDir() + "src/main/java/com/group1/task3/part1/guioptimiser/";
-        parentDir = getParentDir() + "target/classes ";
+        parentDir = getParentDir();
         //System.out.println(parentDir.concat(TARGET_APP));
         for (int i = 0; i < 5; i++) //RunTargetApp runTargetApp = new RunTargetApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
         {
             System.out.println("------------ Run " + i + " ------------");
-            runApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
+            runApp(parentDir.concat("target/classes/ ").concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
             // runApp(TARGET_APP, TARGET_APP_RUNNINGTIME);
             changeColorAll();
         }
@@ -165,7 +165,8 @@ public class GuiOptimiser_Calculator {
             RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
             RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
 
-            saveToCSV(parentDir.concat(TARGET_APP_COLOR), guiComponents, RGB);
+            saveToCSV(parentDir.concat("src/main/java/com/group1/task3/part1/guioptimiser/")
+                                .concat(TARGET_APP_COLOR), guiComponents, RGB);
         } catch (Exception e) {
             e.printStackTrace();
         }
