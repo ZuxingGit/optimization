@@ -31,6 +31,7 @@ public class GuiOptimiser {
     private static final int TARGET_APP_RUNNINGTIME = 2000;
     private static final String JAVA_COMMAND = "java -jar ";
     private static String parentDir = "";
+    private static Capture capture = new Capture();
 
     /**
      * @param args the command line arguments
@@ -54,11 +55,11 @@ public class GuiOptimiser {
         }
         parentDir = getParentDir();
         //System.out.println(parentDir.concat(TARGET_APP));
-        for (int i = 0; i < 5; ) //RunTargetApp runTargetApp = new RunTargetApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
+        for (int i = 0; i < 5; i++) //RunTargetApp runTargetApp = new RunTargetApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
         {
+            System.out.println("------------ Run " + i + " ------------");
             runApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
             // runApp(TARGET_APP, TARGET_APP_RUNNINGTIME);
-            System.out.println(++i + ": Screenshot saved to screeshots folder successfully!");
             changeColorAll();
         }
 
@@ -69,13 +70,12 @@ public class GuiOptimiser {
             //java -jar C:\Users\Mahmoud-Uni\Documents\NetBeansProjects\calculator\dist\calculator.jar
 
             //path = "\""+path+"\"";
-            System.out.println("Target App: " + path);
+            // System.out.println("Target App: " + path);
 
             Runtime runTime = Runtime.getRuntime();
             Process process = runTime.exec(JAVA_COMMAND.concat(path));
             try {
                 Thread.sleep(targetAppRunningtime);
-                Capture capture = new Capture();
                 capture.takeScreenShoot();
 //                BufferedReader stdError = new BufferedReader(new
 //                InputStreamReader(process.getErrorStream()));
@@ -88,7 +88,6 @@ public class GuiOptimiser {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Target App exiting...");
             process.destroy();
         } catch (IOException e) {
             e.printStackTrace();

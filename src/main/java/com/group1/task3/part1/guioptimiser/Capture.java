@@ -21,20 +21,43 @@ import javax.imageio.ImageIO;
  * @author Mahmoud-Uni
  */
 public class Capture {
+    RandomSerach randomSerach = new RandomSerach();
+
     public String takeScreenShoot()
     {
         String fileName = "";
         try {
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
             BufferedImage capture = new Robot().createScreenCapture(screenRect);
-            fileName = "image-"+System.currentTimeMillis()+".png";
-            // Create the directory if it doesn't exist, for storing the screenshots
-            File directory = new File("src/main/java/com/group1/task3/part1/guioptimiser/screenshots/");
-            if (!directory.exists()) {
-                directory.mkdirs(); // Create directory and parent directories if necessary
+            // check the newest screenshot's energy consumption before saving/discarding it
+            EnergyConsumptionComputer energyConsumptionComputer = new EnergyConsumptionComputer();
+            double totalChargeConsumption = energyConsumptionComputer.calculateTotalChargeConsumption(capture);
+            System.out.println("Total charge consumption for the screenshot: " + totalChargeConsumption + " mA");
+            
+            if (randomSerach.search(totalChargeConsumption)) {
+                // Delete the old screenshot
+                String oldFileName = randomSerach.getBestColourSettings();
+                if (oldFileName != null && !oldFileName.isEmpty()) {
+                    File oldFile = new File("src/main/java/com/group1/task3/part1/guioptimiser/screenshots/" + oldFileName);
+                    if (oldFile.exists()) {
+                        oldFile.delete();
+                        System.out.println("Old screenshot deleted: " + oldFileName);
+                    }
+                }
+                // Save the new screenshot to a file
+                fileName = "image-"+System.currentTimeMillis()+".png";
+                // Create the directory if it doesn't exist, for storing the screenshots
+                File directory = new File("src/main/java/com/group1/task3/part1/guioptimiser/screenshots/");
+                if (!directory.exists()) {
+                    directory.mkdirs(); // Create directory and parent directories if necessary
+                }
+                ImageIO.write(capture, "png", new File(directory, fileName));
+                randomSerach.setBestColourSettings(fileName);
+                randomSerach.setBestEnergyConsumption(totalChargeConsumption);
+                System.out.println("New best screenshot saved: " + fileName);
+            } else {
+                System.out.println("New screenshot discarded.");
             }
-
-            ImageIO.write(capture, "png", new File(directory, fileName));
         } catch (AWTException ex) {
             Logger.getLogger(Capture.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
