@@ -26,7 +26,7 @@ public class GetPixelsARGB {
         // Create a PathMatcher for the specified pattern
         PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:" + pattern);
         // specify the path to the directory for searching
-        Path dir = Paths.get("./GuiOptimiser/screenshots");
+        Path dir = Paths.get("src/main/java/com/group1/archive/GuiOptimiser/src/zuxingCode/screenshots");
 
         // read image
         try {

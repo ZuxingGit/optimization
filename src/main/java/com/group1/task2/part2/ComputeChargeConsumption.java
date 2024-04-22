@@ -59,7 +59,7 @@ public class ComputeChargeConsumption {
      * Calculate the total charge consumption for the entire image
      * @param img
      * @return total charge consumption
-     * @author Zuxing
+     * @author Zuxing, Chung
      */
     public static double calculateTotalChargeConsumption(BufferedImage img) {
         double totalChargeConsumption = 0;

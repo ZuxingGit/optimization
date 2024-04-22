@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ComputeChargeConsumption",
+            "request": "launch",
+            "mainClass": "com.group1.task2.part2.ComputeChargeConsumption",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "GuiOptimiser",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.guioptimiser.GuiOptimiser",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
             "name": "ComputerChargeConsumption",
             "request": "launch",
             "mainClass": "com.group1.task2.part2.ComputerChargeConsumption",
