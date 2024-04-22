@@ -16,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
+import com.group1.task3.part1.algorithm.RandomSerach;
+
 /**
  *
  * @author Mahmoud-Uni

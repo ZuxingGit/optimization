@@ -23,13 +23,15 @@ import java.util.Random;
  *
  * @author Mahmoud-Uni
  */
-public class GuiOptimiser {
+public class GuiOptimiser_Calculator {
 
-    private static String TARGET_APP = "calculator.jar";
+    // private static String TARGET_APP = "calculator.jar";
+    private static String TARGET_APP = "com.group1.task3.part1.gui.CalculatorMainFrame";
     //private static final String TARGET_APP = "simpleApp.jar";
     private static final String TARGET_APP_COLOR = "color.csv";
-    private static final int TARGET_APP_RUNNINGTIME = 2000;
-    private static final String JAVA_COMMAND = "java -jar ";
+    private static final int TARGET_APP_RUNNINGTIME = 3000;
+    // private static final String JAVA_COMMAND = "java -jar ";
+    private static String JAVA_COMMAND = "java -cp ";
     private static String parentDir = "";
     private static Capture capture = new Capture();
 
@@ -53,7 +55,8 @@ public class GuiOptimiser {
                     return;
             }
         }
-        parentDir = getParentDir();
+        // parentDir = getParentDir() + "src/main/java/com/group1/task3/part1/guioptimiser/";
+        parentDir = getParentDir() + "target/classes ";
         //System.out.println(parentDir.concat(TARGET_APP));
         for (int i = 0; i < 5; i++) //RunTargetApp runTargetApp = new RunTargetApp(parentDir.concat(TARGET_APP), TARGET_APP_RUNNINGTIME);
         {
@@ -73,6 +76,7 @@ public class GuiOptimiser {
             // System.out.println("Target App: " + path);
 
             Runtime runTime = Runtime.getRuntime();
+            // System.out.println(JAVA_COMMAND.concat(path));
             Process process = runTime.exec(JAVA_COMMAND.concat(path));
             try {
                 Thread.sleep(targetAppRunningtime);

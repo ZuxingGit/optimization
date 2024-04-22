@@ -1,4 +1,4 @@
-package com.group1.task3.part1.guioptimiser;
+package com.group1.task3.part1.algorithm;
 
 /**
  * Random search algorithm to find the best colour settings for energy consumption optimisation.
