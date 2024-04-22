@@ -52,6 +52,12 @@ public class Capture {
                 File directory = new File("src/main/java/com/group1/task3/part1/guioptimiser/screenshots/");
                 if (!directory.exists()) {
                     directory.mkdirs(); // Create directory and parent directories if necessary
+                } else {
+                    // Delete all the old screenshots
+                    File[] oldFiles = directory.listFiles();
+                    for (File oldFile : oldFiles) {
+                        oldFile.delete();
+                    }
                 }
                 ImageIO.write(capture, "png", new File(directory, fileName));
                 randomSerach.setBestColourSettings(fileName);
