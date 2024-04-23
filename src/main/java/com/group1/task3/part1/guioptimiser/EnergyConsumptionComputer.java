@@ -1,6 +1,9 @@
 package com.group1.task3.part1.guioptimiser;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  * @autuor: Zuxing
@@ -19,6 +22,23 @@ public class EnergyConsumptionComputer {
         double totalConsumption = (red * redConsumptionRate + green * greenConsumptionRate + blue * blueConsumptionRate) / 255.0;
 
         return totalConsumption;
+    }
+
+    // Function to load an image from file
+    public BufferedImage loadImage(String imagePath) {
+        BufferedImage img = null;
+        File f = null;
+
+        try {
+            f = new File(imagePath);
+            img = ImageIO.read(f);
+            return img;
+
+        } catch (IOException e) {
+            // Handle IO exceptions
+            System.out.println(e);
+            return null;
+        }
     }
 
     /**
