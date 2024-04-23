@@ -24,6 +24,17 @@ import com.group1.task3.part1.algorithm.RandomSerach;
  */
 public class Capture {
     RandomSerach randomSerach = new RandomSerach();
+    private String path;
+
+    public Capture(String targetApp) {
+        if (targetApp.contains("SimpleMainFrame")) {
+            this.path = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots_simpleApp/";
+        } else if (targetApp.contains("CalculatorMainFrame")) {
+            this.path = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots_calculator/";
+        } else {
+            this.path = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots/";
+        }
+    }
 
     public String takeScreenShoot()
     {
@@ -40,7 +51,7 @@ public class Capture {
                 // Delete the old screenshot
                 String oldFileName = randomSerach.getBestColourSettings();
                 if (oldFileName != null && !oldFileName.isEmpty()) {
-                    File oldFile = new File("src/main/java/com/group1/task3/part1/guioptimiser/screenshots/" + oldFileName);
+                    File oldFile = new File(path + oldFileName);
                     if (oldFile.exists()) {
                         oldFile.delete();
                         System.out.println("Old screenshot deleted: " + oldFileName);
@@ -49,16 +60,16 @@ public class Capture {
                 // Save the new screenshot to a file
                 fileName = "image-"+System.currentTimeMillis()+".png";
                 // Create the directory if it doesn't exist, for storing the screenshots
-                File directory = new File("src/main/java/com/group1/task3/part1/guioptimiser/screenshots/");
+                File directory = new File(path);
                 if (!directory.exists()) {
                     directory.mkdirs(); // Create directory and parent directories if necessary
-                } else {
-                    // Delete all the old screenshots
+                } /* else {
+                    // Delete all the old screenshots from previous runs
                     File[] oldFiles = directory.listFiles();
                     for (File oldFile : oldFiles) {
                         oldFile.delete();
                     }
-                }
+                } */
                 ImageIO.write(capture, "png", new File(directory, fileName));
                 randomSerach.setBestColourSettings(fileName);
                 randomSerach.setBestEnergyConsumption(totalChargeConsumption);

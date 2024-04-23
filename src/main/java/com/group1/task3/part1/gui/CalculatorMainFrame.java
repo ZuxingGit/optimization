@@ -316,7 +316,7 @@ public class CalculatorMainFrame extends javax.swing.JFrame {
         CalculatorMainFrame calculatorMainFrame = new CalculatorMainFrame();
         calculatorMainFrame.setVisible(true);
         
-        AppColor appColor = new AppColor();
+        AppColor appColor = new AppColor(colorCsvFilename);
         calculatorMainFrame.getContentPane().setBackground(appColor.mainFrameColor);
         calculatorMainFrame.jButton1.setBackground(appColor.jButton1);
         calculatorMainFrame.jButton2.setBackground(appColor.jButton2);
@@ -375,4 +375,5 @@ public class CalculatorMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+    private static String colorCsvFilename = "color_calculator.csv";
 }

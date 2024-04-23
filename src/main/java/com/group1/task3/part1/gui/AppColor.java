@@ -45,7 +45,10 @@ public class AppColor {
     public Color jButton14;
     public Color jTextField1TextColor;
 
-    public AppColor() {
+    private String colorCsvFilename;
+
+    public AppColor(String colorCsvFilename) {
+        this.colorCsvFilename = colorCsvFilename;
         int[] RGB = readFromConfigurationFile("mainFrameColor");
         mainFrameColor = new Color(RGB[0], RGB[1], RGB[2]);
         System.out.println(mainFrameColor.toString());
@@ -111,7 +114,7 @@ public class AppColor {
 
     public int[] readFromConfigurationFile(String key) {
 
-        final String csvFile = "color.csv";
+        final String csvFile = colorCsvFilename;
 
         BufferedReader br = null;
         String line = "";

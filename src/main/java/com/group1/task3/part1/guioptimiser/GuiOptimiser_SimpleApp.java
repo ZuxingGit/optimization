@@ -28,12 +28,12 @@ public class GuiOptimiser_SimpleApp {
     // private static String TARGET_APP = "calculator.jar";
     private static String TARGET_APP = "com.group1.task3.part1.gui.SimpleMainFrame";
     //private static final String TARGET_APP = "simpleApp.jar";
-    private static final String TARGET_APP_COLOR = "color.csv";
+    private static final String TARGET_APP_COLOR = "color_simpleApp.csv";
     private static final int TARGET_APP_RUNNINGTIME = 2500;
     // private static final String JAVA_COMMAND = "java -jar ";
     private static String JAVA_COMMAND = "java -cp ";
     private static String parentDir = "";
-    private static Capture capture = new Capture();
+    private static Capture capture = new Capture(TARGET_APP);
 
     /**
      * @param args the command line arguments
