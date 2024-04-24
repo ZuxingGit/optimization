@@ -51,7 +51,7 @@ public class AppColor {
         this.colorCsvFilename = colorCsvFilename;
         int[] RGB = readFromConfigurationFile("mainFrameColor");
         mainFrameColor = new Color(RGB[0], RGB[1], RGB[2]);
-        System.out.println(mainFrameColor.toString());
+        // System.out.println(mainFrameColor.toString());
         RGB = readFromConfigurationFile("jButton1");
         jButton1 = new Color(RGB[0], RGB[1], RGB[2]);
         RGB = readFromConfigurationFile("jButton2");
@@ -124,7 +124,7 @@ public class AppColor {
             //System.out.println(jarDir.getAbsolutePath());
             String dir = (new File("dir").getAbsolutePath().replace("dir", ""));
             dir = dir + "src/main/java/com/group1/task3/part1/guioptimiser/";
-            System.out.println(dir);
+            // System.out.println(dir);
             br = new BufferedReader(new FileReader(new File(dir, csvFile)));
             while ((line = br.readLine()) != null) {
                 // use comma as separator

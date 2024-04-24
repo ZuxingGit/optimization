@@ -12,6 +12,7 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -24,9 +25,10 @@ import com.group1.task3.part1.algorithm.RandomSerach;
  */
 public class Capture {
     RandomSerach randomSerach = new RandomSerach();
-    private String path;
+    private String path;    
 
     public Capture(String targetApp) {
+        // Set the path to store the screenshots based on the target application
         if (targetApp.contains("SimpleMainFrame")) {
             this.path = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots_simpleApp/";
         } else if (targetApp.contains("CalculatorMainFrame")) {
@@ -36,53 +38,31 @@ public class Capture {
         }
     }
 
-    public String takeScreenShoot()
+    public BufferedImage takeScreenShot()
     {
-        String fileName = "";
+        
+        BufferedImage capture = null; // Initialize the capture variable
         try {
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-            BufferedImage capture = new Robot().createScreenCapture(screenRect);
-            // check the newest screenshot's energy consumption before saving/discarding it
-            EnergyConsumptionComputer energyConsumptionComputer = new EnergyConsumptionComputer();
-            double totalChargeConsumption = energyConsumptionComputer.calculateTotalChargeConsumption(capture);
-            System.out.println("Total charge consumption for the screenshot: " + totalChargeConsumption + " mA");
-            
-            if (randomSerach.search(totalChargeConsumption)) {
-                // Delete the old screenshot
-                String oldFileName = randomSerach.getBestColourSettings();
-                if (oldFileName != null && !oldFileName.isEmpty()) {
-                    File oldFile = new File(path + oldFileName);
-                    if (oldFile.exists()) {
-                        oldFile.delete();
-                        System.out.println("Old screenshot deleted: " + oldFileName);
-                    }
-                }
-                // Save the new screenshot to a file
-                fileName = "image-"+System.currentTimeMillis()+".png";
-                // Create the directory if it doesn't exist, for storing the screenshots
-                File directory = new File(path);
-                if (!directory.exists()) {
-                    directory.mkdirs(); // Create directory and parent directories if necessary
-                } /* else {
-                    // Delete all the old screenshots from previous runs
-                    File[] oldFiles = directory.listFiles();
-                    for (File oldFile : oldFiles) {
-                        oldFile.delete();
-                    }
-                } */
-                ImageIO.write(capture, "png", new File(directory, fileName));
-                randomSerach.setBestColourSettings(fileName);
-                randomSerach.setBestEnergyConsumption(totalChargeConsumption);
-                System.out.println("New best screenshot saved: " + fileName);
-            } else {
-                System.out.println("New screenshot discarded.");
-            }
+            capture = new Robot().createScreenCapture(screenRect);
         } catch (AWTException ex) {
             Logger.getLogger(Capture.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        return capture;
+    }
+    
+    public void saveScreenShot(BufferedImage imgData, String fileName)
+    {
+        try {
+            // Create the directory if it doesn't exist, for storing the screenshots
+            File directory = new File(this.path);
+            if (!directory.exists()) {
+                directory.mkdirs(); // Create directory and parent directories if necessary
+            }
+
+            ImageIO.write(imgData, "png", new File(directory, fileName));
         } catch (IOException ex) {
             Logger.getLogger(Capture.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return fileName;
     }
-    
 }

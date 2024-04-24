@@ -6,7 +6,6 @@
 package com.group1.task3.part1.gui;
 
 import java.awt.Color;
-import java.awt.color.ColorSpace;
 
 /**
  *
@@ -33,7 +32,7 @@ public class SimpleMainFrame extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -46,8 +45,8 @@ public class SimpleMainFrame extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(254, 300));
 
-        jButton2.setBackground(new java.awt.Color(153, 153, 0));
-        jButton2.setText("Click");
+        jButton1.setBackground(new java.awt.Color(153, 153, 0));
+        jButton1.setText("Click");
 
         jTextField1.setForeground(new java.awt.Color(51, 255, 51));
         jTextField1.setText("some text ...");
@@ -62,7 +61,7 @@ public class SimpleMainFrame extends javax.swing.JFrame {
             .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(93, 93, 93)
-                .addComponent(jButton2)
+                .addComponent(jButton1)
                 .addContainerGap(102, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
@@ -76,7 +75,7 @@ public class SimpleMainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton2)
+                .addComponent(jButton1)
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
@@ -122,12 +121,12 @@ public class SimpleMainFrame extends javax.swing.JFrame {
         SimpleMainFrame calculatorMainFrame;
         calculatorMainFrame = new SimpleMainFrame();
         calculatorMainFrame.setVisible(true);
-        AppColor appColor = new AppColor(colorCsvFilename);
+        SimpleAppColor appColor = new SimpleAppColor(colorCsvFilename);
         Color mainFrameColor = appColor.mainFrameColor;
         calculatorMainFrame.getContentPane().setBackground(mainFrameColor);
         calculatorMainFrame.jPanel1.setBackground(appColor.jPanel1);
         //calculatorMainFrame.jButton2.setForeground(appColor.jButton2);
-        calculatorMainFrame.jButton2.setBackground(appColor.jButton2);
+        calculatorMainFrame.jButton1.setBackground(appColor.jButton1);
         calculatorMainFrame.jTextField1.setBackground(appColor.jTextField1);
         calculatorMainFrame.jTextField1.setForeground(appColor.jTextField1TextColor);
         calculatorMainFrame.jLabel1.setForeground(appColor.jLabel1);
@@ -138,7 +137,7 @@ public class SimpleMainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
