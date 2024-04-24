@@ -30,7 +30,7 @@ public class SimpleAppLauncher {
     public String TARGET_APP = "com.group1.task3.part1.gui.SimpleMainFrame";
     //private static final String TARGET_APP = "simpleApp.jar";
     private static final String TARGET_APP_COLOR = "color_simpleApp.csv";
-    public final int TARGET_APP_RUNNINGTIME = 2500;
+    public final int TARGET_APP_RUNNINGTIME = 2000;
     // private static final String JAVA_COMMAND = "java -jar ";
     private static String JAVA_COMMAND = "java -cp ";
     public String parentDir = "";
@@ -87,7 +87,7 @@ public class SimpleAppLauncher {
      * @param fileName
      */
     public void saveScreenShot(BufferedImage currentBestImage, String fileName) {
-        if (currentBestImage == null) {
+        if (currentBestImage == null) { // if null then save current scrShot content
             capture.saveScreenShot(imageContent, fileName);
         } else {
             capture.saveScreenShot(currentBestImage, fileName);

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "HillClimbing",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.algorithm.HillClimbing",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "AlgoTester",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.algorithm.AlgoTester",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
             "name": "GuiOptimiser_SimpleApp",
             "request": "launch",
             "mainClass": "com.group1.task3.part1.guioptimiser.GuiOptimiser_SimpleApp",
