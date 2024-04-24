@@ -22,7 +22,9 @@ public class HillClimbing {
         // Only 6 components needed
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
+        // 2. jTextField1 (start from 0)
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
+        // 3. jTextField1TextColor (start from 0)
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
@@ -33,9 +35,17 @@ public class HillClimbing {
 
         for (int i = 0; i < iterations; i++) {
             System.out.println("--------------------------------------------");
-            Integer delta = (r.nextInt(2) == 0) ? -1 : 1; //delta is either -1 or 1
+            Integer value = r.nextInt(10) + 1; //value is between 1 and 10
+            Integer sign = (r.nextInt(2) == 0) ? -1 : 1; //delta is either -1 or 1
+            Integer delta = sign * value; //delta is between -10 and 10, 0 excluded
             System.out.println("Delta: " + delta);
             ArrayList<ArrayList<Integer>> newSolution = generateNewSolution(delta, currentSolution);
+            if (Euclidean.getDistance(newSolution.get(2), newSolution.get(3)) < 128) {
+                System.out.println("Distance between jTextField1 and jTextField1TextColor is less than 128");
+                // so that background color is black, the distance of text color between bg color is 128
+                newSolution.set(2, new ArrayList<Integer>(Arrays.asList(0, 0, 0)));
+                newSolution.set(3, new ArrayList<Integer>(Arrays.asList(74, 74, 74)));
+            }
             double newFitness = function.apply(newSolution);
             System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
 
@@ -96,7 +106,6 @@ public class HillClimbing {
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
         // 20. jTextField1TextColor (start from 0)
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
         currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
@@ -111,9 +120,17 @@ public class HillClimbing {
 
         for (int i = 0; i < iterations; i++) {
             System.out.println("--------------------------------------------");
-            Integer delta = (r.nextInt(2) == 0) ? -10 : 10; //delta is either -1 or 1
+            Integer value = r.nextInt(10) + 1; //value is between 1 and 10
+            Integer sign = (r.nextInt(2) == 0) ? -1 : 1; //delta is either -1 or 1
+            Integer delta = sign * value; //delta is between -10 and 10, 0 excluded
             System.out.println("Delta: " + delta);
             ArrayList<ArrayList<Integer>> newSolution = generateNewSolution(delta, currentSolution);
+            if (Euclidean.getDistance(newSolution.get(19), newSolution.get(20)) < 128) {
+                System.out.println("Distance between jTextField1 and jTextField1TextColor is less than 128");
+                // so that background color is black, the distance of text color between bg color is 128
+                newSolution.set(19, new ArrayList<Integer>(Arrays.asList(0, 0, 0)));
+                newSolution.set(20, new ArrayList<Integer>(Arrays.asList(74, 74, 74)));
+            }
             double newFitness = function.apply(newSolution);
             System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
 
@@ -172,9 +189,7 @@ public class HillClimbing {
     }
 
     public static void main(String[] args) {
-        simpleAppSearch(currentSolution -> sa.runApp(currentSolution), 10);
-        // caculatorSearch(currentSolution -> ca.runApp(currentSolution), 10);
-
+        // simpleAppSearch(currentSolution -> sa.runApp(currentSolution), 10);
+        caculatorSearch(currentSolution -> ca.runApp(currentSolution), 10);
     }
-
 }
