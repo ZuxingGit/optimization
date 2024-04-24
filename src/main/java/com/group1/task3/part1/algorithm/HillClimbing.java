@@ -9,6 +9,9 @@ import java.util.function.Function;
 import com.group1.task3.part1.guioptimiser.CalculatorLauncher;
 import com.group1.task3.part1.guioptimiser.SimpleAppLauncher;
 
+/**
+ * @author Zuxing
+ */
 public class HillClimbing {
     private static final Random r = new Random();
     private static SimpleAppLauncher sa = new SimpleAppLauncher();
@@ -20,24 +23,21 @@ public class HillClimbing {
         ArrayList<ArrayList<Integer>> currentSolution = new ArrayList<ArrayList<Integer>>();
         // currentSolution contains RGB values for each simpleApp GUI component. 
         // Only 6 components needed
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        // 2. jTextField1 (start from 0)
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        // 3. jTextField1TextColor (start from 0)
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        // ArrayList<ArrayList<Integer>> currentSolution = lowerBound + r.nextInt(upperBound - lowerBound) + 1;
+        for (int i = 0; i < 6; i++) {
+            currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
+            // 2. jTextField1 (start from 0)
+            // 3. jTextField1TextColor (start from 0)
+        }
+
         double currentFitness = function.apply(currentSolution);
         System.out.println("Initial solution: " + currentSolution + "\nInitial fitness: " + currentFitness);
         sa.saveScreenShot(null, "initial.png");
 
         for (int i = 0; i < iterations; i++) {
             System.out.println("--------------------------------------------");
-            Integer value = r.nextInt(10) + 1; //value is between 1 and 10
+            Integer value = r.nextInt(25) + 1; //value is between 1 and 25
             Integer sign = (r.nextInt(2) == 0) ? -1 : 1; //delta is either -1 or 1
-            Integer delta = sign * value; //delta is between -10 and 10, 0 excluded
+            Integer delta = sign * value; //delta is between -25 and 25, 0 excluded
             System.out.println("Delta: " + delta);
             ArrayList<ArrayList<Integer>> newSolution = generateNewSolution(delta, currentSolution);
             if (Euclidean.getDistance(newSolution.get(2), newSolution.get(3)) < 128) {
@@ -64,7 +64,7 @@ public class HillClimbing {
                 sa.saveScreenShot(currentBestImage, "100.png");
                 System.out.println("============================================");
                 System.out.println("100th solution: " + currentSolution + "\n100th fitness: " + currentFitness);
-            } else if (i==iterations-1) {
+            } else if (i == iterations-1) {
                 if (i == 999) {
                     sa.saveScreenShot(currentBestImage, "1000.png");
                     System.out.println("============================================");
@@ -83,46 +83,21 @@ public class HillClimbing {
         ArrayList<ArrayList<Integer>> currentSolution = new ArrayList<ArrayList<Integer>>();
         // currentSolution contains RGB values for each caculator GUI component. 
         // All 27 components needed
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        // 19. jTextField1 (start from 0)
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        // 20. jTextField1TextColor (start from 0)
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        
-        // ArrayList<ArrayList<Integer>> currentSolution = lowerBound + r.nextInt(upperBound - lowerBound) + 1;
+        for (int i = 0; i < 27; i++) {
+            currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
+            // 19. jTextField1 (start from 0)
+            // 20. jTextField1TextColor (start from 0)
+        }
+
         double currentFitness = function.apply(currentSolution);
         System.out.println("Initial solution: " + currentSolution + "\nInitial fitness: " + currentFitness);
         ca.saveScreenShot(null, "initial.png");
 
         for (int i = 0; i < iterations; i++) {
             System.out.println("--------------------------------------------");
-            Integer value = r.nextInt(10) + 1; //value is between 1 and 10
+            Integer value = r.nextInt(25) + 1; //value is between 1 and 25
             Integer sign = (r.nextInt(2) == 0) ? -1 : 1; //delta is either -1 or 1
-            Integer delta = sign * value; //delta is between -10 and 10, 0 excluded
+            Integer delta = sign * value; //delta is between -25 and 25, 0 excluded
             System.out.println("Delta: " + delta);
             ArrayList<ArrayList<Integer>> newSolution = generateNewSolution(delta, currentSolution);
             if (Euclidean.getDistance(newSolution.get(19), newSolution.get(20)) < 128) {
@@ -149,7 +124,7 @@ public class HillClimbing {
                 ca.saveScreenShot(currentBestImage, "100.png");
                 System.out.println("============================================");
                 System.out.println("100th solution: " + currentSolution + "\n100th fitness: " + currentFitness);
-            } else if (i==iterations-1) {
+            } else if (i == iterations-1) {
                 if (i == 999) {
                     ca.saveScreenShot(currentBestImage, "1000.png");
                     System.out.println("============================================");
@@ -174,7 +149,7 @@ public class HillClimbing {
         ArrayList<ArrayList<Integer>> newSolution = new ArrayList<ArrayList<Integer>>();
         for (int i = 0; i < currentSolution.size(); i++) {
             ArrayList<Integer> newRGB = new ArrayList<Integer>();
-            for (int j = 0; j < currentSolution.get(i).size(); j++) {
+            for (int j = 0; j < 3; j++) {
                 int newRGBValue = currentSolution.get(i).get(j) + delta;
                 if (newRGBValue < 0) {
                     newRGBValue = 0;
@@ -189,7 +164,8 @@ public class HillClimbing {
     }
 
     public static void main(String[] args) {
-        // simpleAppSearch(currentSolution -> sa.runApp(currentSolution), 10);
+        simpleAppSearch(currentSolution -> sa.runApp(currentSolution), 10);
+        System.out.println("###############################################\n");
         caculatorSearch(currentSolution -> ca.runApp(currentSolution), 10);
     }
 }

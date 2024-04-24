@@ -9,6 +9,9 @@ import java.util.function.Function;
 import com.group1.task3.part1.guioptimiser.CalculatorLauncher;
 import com.group1.task3.part1.guioptimiser.SimpleAppLauncher;
 
+/**
+ * author: Zuxing, Xingyuan
+ */
 public class RandomSearch {
     private static final Random r = new Random();
     private static SimpleAppLauncher sa = new SimpleAppLauncher();
@@ -20,13 +23,12 @@ public class RandomSearch {
         ArrayList<ArrayList<Integer>> currentSolution = new ArrayList<ArrayList<Integer>>();
         // currentSolution contains RGB values for each simpleApp GUI component.
         // Only 6 components needed
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        // ArrayList<ArrayList<Integer>> currentSolution = lowerBound + r.nextInt(upperBound - lowerBound) + 1;
+        for (int i = 0; i < 6; i++) {
+            currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
+            // 2. jTextField1 (start from 0)
+            // 3. jTextField1TextColor (start from 0)
+        }
+
         double currentFitness = function.apply(currentSolution);
         System.out.println("Initial solution: " + currentSolution + "\nInitial fitness: " + currentFitness);
         sa.saveScreenShot(null, "initial.png");
@@ -59,7 +61,7 @@ public class RandomSearch {
                 sa.saveScreenShot(currentBestImage, "100.png");
                 System.out.println("============================================");
                 System.out.println("100th solution: " + currentSolution + "\n100th fitness: " + currentFitness);
-            } else if (i==iterations-1) {
+            } else if (i == iterations-1) {
                 if (i == 999) {
                     sa.saveScreenShot(currentBestImage, "1000.png");
                     System.out.println("============================================");
@@ -78,37 +80,12 @@ public class RandomSearch {
         ArrayList<ArrayList<Integer>> currentSolution = new ArrayList<ArrayList<Integer>>();
         // currentSolution contains RGB values for each caculator GUI component.
         // All 27 components needed
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        // 19. jTextField1 (start from 0)
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        // 20. jTextField1TextColor (start from 0)
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
-        currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
+        for (int i = 0; i < 27; i++) {
+            currentSolution.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{r.nextInt(256), r.nextInt(256), r.nextInt(256)})));
+            // 19. jTextField1 (start from 0)
+            // 20. jTextField1TextColor (start from 0)
+        }
 
-        // ArrayList<ArrayList<Integer>> currentSolution = lowerBound + r.nextInt(upperBound - lowerBound) + 1;
         double currentFitness = function.apply(currentSolution);
         System.out.println("Initial solution: " + currentSolution + "\nInitial fitness: " + currentFitness);
         ca.saveScreenShot(null, "initial.png");
@@ -141,7 +118,7 @@ public class RandomSearch {
                 ca.saveScreenShot(currentBestImage, "100.png");
                 System.out.println("============================================");
                 System.out.println("100th solution: " + currentSolution + "\n100th fitness: " + currentFitness);
-            } else if (i==iterations-1) {
+            } else if (i == iterations-1) {
                 if (i == 999) {
                     ca.saveScreenShot(currentBestImage, "1000.png");
                     System.out.println("============================================");
@@ -158,7 +135,7 @@ public class RandomSearch {
 
     /**
      * Generate new solution based on the current solution and delta
-
+     * @author: Xingyuan
      */
     public static ArrayList<ArrayList<Integer>> generateNewSolution(ArrayList<ArrayList<Integer>> currentSolution) {
         ArrayList<ArrayList<Integer>> newSolution = new ArrayList<ArrayList<Integer>>();
@@ -178,8 +155,7 @@ public class RandomSearch {
 
     public static void main(String[] args) {
         simpleAppSearch(currentSolution -> sa.runApp(currentSolution), 10);
-        // caculatorSearch(currentSolution -> ca.runApp(currentSolution), 10);
-
+        System.out.println("###############################################\n");
+        caculatorSearch(currentSolution -> ca.runApp(currentSolution), 10);
     }
-
 }

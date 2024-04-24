@@ -189,6 +189,7 @@ public class SimulatedAnnealing {
         double coolingRate = 0.003;
 
         simpleAppSearch(currentSolution -> sa.runApp(currentSolution), 10, temperature, coolingRate);
+        System.out.println("###############################################\n");
         caculatorSearch(currentSolution -> ca.runApp(currentSolution), 10, temperature, coolingRate);
     }
 }
