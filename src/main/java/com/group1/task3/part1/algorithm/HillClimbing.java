@@ -65,7 +65,7 @@ public class HillClimbing {
                 sa.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
                 System.out.println("============================================");
                 System.out.println(i + 1 + "th solution: " + currentSolution + "\n" + i + 1 + "th fitness: " + currentFitness);
-            } else if (i == iterations-1 && i != 999) {
+            } else if (i == iterations-1) {
                 String imageFileName = "final.png";
                 String csvFileName = "final.csv";
                 sa.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
@@ -122,7 +122,7 @@ public class HillClimbing {
                 ca.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
                 System.out.println("============================================");
                 System.out.println((i + 1) + "th solution: " + currentSolution + "\n" + (i + 1) + "th fitness: " + currentFitness);
-            } else if (i == iterations-1 && i != 999) {
+            } else if (i == iterations-1) {
                 String imageFileName = "final.png";
                 String csvFileName = "final.csv";
                 ca.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
@@ -160,8 +160,8 @@ public class HillClimbing {
 
     public static void main(String[] args) {
         int iterations = 10;
-        int times = 1;
-        for (int i = 0; i < times; i++) {
+        int rounds = 1;
+        for (int i = 0; i < rounds; i++) {
             int round = i + 1;
             System.out.println("Round: " + round);
             simpleAppSearch(currentSolution -> sa.runApp(currentSolution), iterations, round);
