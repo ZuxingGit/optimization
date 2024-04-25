@@ -149,8 +149,8 @@ public class RandomSearch {
     }
 
     public static void main(String[] args) {
-        int iterations = 10;  // number of screenshots
-        int rounds = 1; // number of rounds, 10 rounds are needed for the final report
+        int iterations = 1000;  // number of screenshots
+        int rounds = 10; // number of rounds, 10 rounds are needed for the final report
         for (int i = 0; i < rounds; i++) {
             int round = i + 1;
             System.out.println("*************** Round: " + round + "*********************");
