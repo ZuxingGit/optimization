@@ -10,6 +10,7 @@ import com.group1.task3.part1.guioptimiser.CalculatorLauncher;
 import com.group1.task3.part1.guioptimiser.SimpleAppLauncher;
 
 public class SimulatedAnnealing {
+    private static final String ALGORITHM = "SimulatedAnnealing";
     private static final Random r = new Random();
     private static SimpleAppLauncher sa = new SimpleAppLauncher();
     private static CalculatorLauncher ca = new CalculatorLauncher();
@@ -17,7 +18,7 @@ public class SimulatedAnnealing {
     private static BufferedImage currentBestImage;
 
     public static ArrayList<ArrayList<Integer>> simpleAppSearch(Function<ArrayList<ArrayList<Integer>>, Double> function, 
-                                                int iterations, double initialTemperature, double coolingRate) {
+                                                int iterations, double initialTemperature, double coolingRate, int round) {
         ArrayList<ArrayList<Integer>> currentSolution = new ArrayList<ArrayList<Integer>>();
         double temperature = initialTemperature;
         // currentSolution contains RGB values for each simpleApp GUI component. 
@@ -30,10 +31,11 @@ public class SimulatedAnnealing {
 
         double currentFitness = function.apply(currentSolution);
         System.out.println("Initial solution: " + currentSolution + "\nInitial fitness: " + currentFitness);
-        sa.saveScreenShot(null, "initial.png");
+        String initialImageFileName = "initial.png";
+        sa.saveScreenShot(null, initialImageFileName, ALGORITHM, round);
 
         for (int i = 0; i < iterations; i++) {
-            System.out.println("--------------------------------------------");
+            System.out.println("------------------- "+ (i+1) +" -------------------------");
             Integer value = r.nextInt(25) + 1; //value is between 1 and 25
             Integer sign = (r.nextInt(2) == 0) ? -1 : 1; //delta is either -1 or 1
             Integer delta = sign * value; //delta is between -25 and 25, 0 excluded
@@ -46,42 +48,37 @@ public class SimulatedAnnealing {
                 newSolution.set(3, new ArrayList<Integer>(Arrays.asList(74, 74, 74)));
             }
             double newFitness = function.apply(newSolution);
-            System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
+            // System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
             // accept it or not
             if (shouldAccept(currentFitness, newFitness, temperature)) {
                 currentSolution = newSolution;
                 currentFitness = newFitness;
                 currentBestImage = sa.imageContent;
             }
-            System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
+            // System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
 
-            if (i == 9) {
-                sa.saveScreenShot(currentBestImage, "10.png");
-                System.out.println("============================================");
-                System.out.println("10th solution: " + currentSolution + "\n10th fitness: " + currentFitness);
-            } else if (i == 99) {
-                sa.saveScreenShot(currentBestImage, "100.png");
-                System.out.println("============================================");
-                System.out.println("100th solution: " + currentSolution + "\n100th fitness: " + currentFitness);
+            if (i == 9 || i == 99 || i == 999) {
+                String imageFileName = (i + 1) + ".png";
+                String csvFileName = (i + 1) + ".csv";
+                sa.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
+                sa.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
+                System.out.println("================================================");
+                System.out.println(i + 1 + "th solution: " + currentSolution + "\n" + i + 1 + "th fitness: " + currentFitness);
             } else if (i == iterations-1) {
-                if (i == 999) {
-                    sa.saveScreenShot(currentBestImage, "1000.png");
-                    System.out.println("============================================");
-                    System.out.println("1000th solution: " + currentSolution + "\n1000th fitness: " + currentFitness);
-                } else {
-                    sa.saveScreenShot(currentBestImage, "final.png");
-                    System.out.println("============================================");
-                    System.out.println("Final solution: " + currentSolution + "\nFinal fitness: " + currentFitness);
-                }
+                String imageFileName = "final.png";
+                String csvFileName = "final.csv";
+                sa.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
+                sa.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
+                System.out.println("================================================");
+                System.out.println("Final solution: " + currentSolution + "\nFinal fitness: " + currentFitness);
             }
-
             temperature *= 1 - coolingRate;
         }
         return currentSolution;
     }
 
     public static ArrayList<ArrayList<Integer>> calculatorSearch(Function<ArrayList<ArrayList<Integer>>, Double> function, 
-                                                int iterations, double initialTemperature, double coolingRate) {
+                                                int iterations, double initialTemperature, double coolingRate, int round) {
         ArrayList<ArrayList<Integer>> currentSolution = new ArrayList<ArrayList<Integer>>();
         double temperature = initialTemperature;
         // currentSolution contains RGB values for each caculator GUI component. 
@@ -94,10 +91,11 @@ public class SimulatedAnnealing {
 
         double currentFitness = function.apply(currentSolution);
         System.out.println("Initial solution: " + currentSolution + "\nInitial fitness: " + currentFitness);
-        ca.saveScreenShot(null, "initial.png");
+        String initialImageFileName = "initial.png";
+        ca.saveScreenShot(null, initialImageFileName, ALGORITHM, round);
 
         for (int i = 0; i < iterations; i++) {
-            System.out.println("--------------------------------------------");
+            System.out.println("------------------- "+ (i+1) +" -------------------------");
             Integer value = r.nextInt(25) + 1; //value is between 1 and 25
             Integer sign = (r.nextInt(2) == 0) ? -1 : 1; //delta is either -1 or 1
             Integer delta = sign * value; //delta is between -25 and 25, 0 excluded
@@ -110,38 +108,32 @@ public class SimulatedAnnealing {
                 newSolution.set(20, new ArrayList<Integer>(Arrays.asList(74, 74, 74)));
             }
             double newFitness = function.apply(newSolution);
-            System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
+            // System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
             // accept it or not
             if (shouldAccept(currentFitness, newFitness, temperature)) {
                 currentSolution = newSolution;
                 currentFitness = newFitness;
                 currentBestImage = ca.imageContent;
             }
+            // System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
 
-            System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
-
-            if (i == 9) {
-                ca.saveScreenShot(currentBestImage, "10.png");
-                System.out.println("============================================");
-                System.out.println("10th solution: " + currentSolution + "\n10th fitness: " + currentFitness);
-            } else if (i == 99) {
-                ca.saveScreenShot(currentBestImage, "100.png");
-                System.out.println("============================================");
-                System.out.println("100th solution: " + currentSolution + "\n100th fitness: " + currentFitness);
+            if (i == 9 || i == 99 || i == 999) {
+                String imageFileName = (i + 1) + ".png";
+                String csvFileName = (i + 1) + ".csv";
+                ca.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
+                ca.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
+                System.out.println("================================================");
+                System.out.println((i + 1) + "th solution: " + currentSolution + "\n" + (i + 1) + "th fitness: " + currentFitness);
             } else if (i == iterations-1) {
-                if (i == 999) {
-                    ca.saveScreenShot(currentBestImage, "1000.png");
-                    System.out.println("============================================");
-                    System.out.println("1000th solution: " + currentSolution + "\n1000th fitness: " + currentFitness);
-                } else {
-                    ca.saveScreenShot(currentBestImage, "final.png");
-                    System.out.println("============================================");
-                    System.out.println("Final solution: " + currentSolution + "\nFinal fitness: " + currentFitness);
-                }
+                String imageFileName = "final.png";
+                String csvFileName = "final.csv";
+                ca.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
+                ca.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
+                System.out.println("================================================");
+                System.out.println("Final solution: " + currentSolution + "\nFinal fitness: " + currentFitness);
             }
             temperature *= 1 - coolingRate;
         }
-
         return currentSolution;
     }
 
@@ -185,11 +177,17 @@ public class SimulatedAnnealing {
     }
 
     public static void main(String[] args) {
+        // these two parameters are for this algorithm, can be adjusted based on the situation
         double temperature = 1000;
         double coolingRate = 0.003;
-
-        simpleAppSearch(currentSolution -> sa.runApp(currentSolution), 10, temperature, coolingRate);
-        System.out.println("###############################################\n");
-        calculatorSearch(currentSolution -> ca.runApp(currentSolution), 10, temperature, coolingRate);
+        int iterations = 10;  // number of screenshots
+        int rounds = 1; // number of rounds, 10 rounds are needed for the final report
+        for (int i =0; i < rounds; i++) {
+            int round = i + 1;
+            System.out.println("*************** Round: " + round + "*********************");
+            simpleAppSearch(currentSolution -> sa.runApp(currentSolution), iterations, temperature, coolingRate, round);
+            System.out.println("###############################################\n");
+            calculatorSearch(currentSolution -> ca.runApp(currentSolution), iterations, temperature, coolingRate, round);
+        }
     }
 }

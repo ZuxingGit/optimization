@@ -36,7 +36,7 @@ public class HillClimbing {
         sa.saveScreenShot(null, initialImageFileName, ALGORITHM, round);
 
         for (int i = 0; i < iterations; i++) {
-            System.out.println("--------------------------------------------");
+            System.out.println("------------------- "+ (i+1) +" -------------------------");
             Integer value = r.nextInt(25) + 1; //value is between 1 and 25
             Integer sign = (r.nextInt(2) == 0) ? -1 : 1; //delta is either -1 or 1
             Integer delta = sign * value; //delta is between -25 and 25, 0 excluded
@@ -49,28 +49,28 @@ public class HillClimbing {
                 newSolution.set(3, new ArrayList<Integer>(Arrays.asList(74, 74, 74)));
             }
             double newFitness = function.apply(newSolution);
-            System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
+            // System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
 
             if (newFitness < currentFitness) {
                 currentSolution = newSolution;
                 currentFitness = newFitness;
                 currentBestImage = sa.imageContent;
             }
-            System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
+            // System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
 
             if (i == 9 || i == 99 || i == 999) {
                 String imageFileName = (i + 1) + ".png";
                 String csvFileName = (i + 1) + ".csv";
                 sa.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
                 sa.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
-                System.out.println("============================================");
+                System.out.println("================================================");
                 System.out.println(i + 1 + "th solution: " + currentSolution + "\n" + i + 1 + "th fitness: " + currentFitness);
             } else if (i == iterations-1) {
                 String imageFileName = "final.png";
                 String csvFileName = "final.csv";
                 sa.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
                 sa.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
-                System.out.println("============================================");
+                System.out.println("================================================");
                 System.out.println("Final solution: " + currentSolution + "\nFinal fitness: " + currentFitness);
             }
         }
@@ -93,7 +93,7 @@ public class HillClimbing {
         ca.saveScreenShot(null, initialImageFileName, ALGORITHM, round);
 
         for (int i = 0; i < iterations; i++) {
-            System.out.println("--------------------------------------------");
+            System.out.println("------------------- "+ (i+1) +" -------------------------");
             Integer value = r.nextInt(25) + 1; //value is between 1 and 25
             Integer sign = (r.nextInt(2) == 0) ? -1 : 1; //delta is either -1 or 1
             Integer delta = sign * value; //delta is between -25 and 25, 0 excluded
@@ -106,28 +106,28 @@ public class HillClimbing {
                 newSolution.set(20, new ArrayList<Integer>(Arrays.asList(74, 74, 74)));
             }
             double newFitness = function.apply(newSolution);
-            System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
+            // System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
 
             if (newFitness < currentFitness) {
                 currentSolution = newSolution;
                 currentFitness = newFitness;
                 currentBestImage = ca.imageContent;
             }
-            System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
+            // System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
 
             if (i == 9 || i == 99 || i == 999) {
                 String imageFileName = (i + 1) + ".png";
                 String csvFileName = (i + 1) + ".csv";
                 ca.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
                 ca.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
-                System.out.println("============================================");
+                System.out.println("================================================");
                 System.out.println((i + 1) + "th solution: " + currentSolution + "\n" + (i + 1) + "th fitness: " + currentFitness);
             } else if (i == iterations-1) {
                 String imageFileName = "final.png";
                 String csvFileName = "final.csv";
                 ca.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
                 ca.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
-                System.out.println("============================================");
+                System.out.println("================================================");
                 System.out.println("Final solution: " + currentSolution + "\nFinal fitness: " + currentFitness);
             }
         }
@@ -159,11 +159,11 @@ public class HillClimbing {
     }
 
     public static void main(String[] args) {
-        int iterations = 10;
-        int rounds = 1;
+        int iterations = 10;  // number of screenshots
+        int rounds = 1; // number of rounds, 10 rounds are needed for the final report
         for (int i = 0; i < rounds; i++) {
             int round = i + 1;
-            System.out.println("Round: " + round);
+            System.out.println("*************** Round: " + round + "*********************");
             simpleAppSearch(currentSolution -> sa.runApp(currentSolution), iterations, round);
             System.out.println("###############################################\n");
             calculatorSearch(currentSolution -> ca.runApp(currentSolution), iterations, round);

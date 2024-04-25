@@ -36,7 +36,7 @@ public class RandomSearch {
         sa.saveScreenShot(null, initialImageFileName, ALGORITHM, round);
 
         for (int i = 0; i < iterations; i++) {
-            System.out.println("--------------------------------------------");
+            System.out.println("------------------- "+ (i+1) +" -------------------------");
             ArrayList<ArrayList<Integer>> newSolution = generateNewSolution(currentSolution);
 
             if (Euclidean.getDistance(newSolution.get(2), newSolution.get(3)) < 128) {
@@ -46,28 +46,28 @@ public class RandomSearch {
                 newSolution.set(3, new ArrayList<Integer>(Arrays.asList(74, 74, 74)));
             }
             double newFitness = function.apply(newSolution);
-            System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
+            // System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
 
             if (newFitness < currentFitness) {
                 currentSolution = newSolution;
                 currentFitness = newFitness;
                 currentBestImage = sa.imageContent;
             }
-            System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
+            // System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
 
             if (i == 9 || i == 99 || i == 999) {
                 String imageFileName = (i + 1) + ".png";
                 String csvFileName = (i + 1) + ".csv";
                 sa.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
                 sa.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
-                System.out.println("============================================");
+                System.out.println("================================================");
                 System.out.println(i + 1 + "th solution: " + currentSolution + "\n" + i + 1 + "th fitness: " + currentFitness);
             } else if (i == iterations-1) {
                 String imageFileName = "final.png";
                 String csvFileName = "final.csv";
                 sa.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
                 sa.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
-                System.out.println("============================================");
+                System.out.println("================================================");
                 System.out.println("Final solution: " + currentSolution + "\nFinal fitness: " + currentFitness);
             }
         }
@@ -90,7 +90,7 @@ public class RandomSearch {
         ca.saveScreenShot(null, initialImageFileName, ALGORITHM, round);
 
         for (int i = 0; i < iterations; i++) {
-            System.out.println("--------------------------------------------");
+            System.out.println("------------------- "+ (i+1) +" -------------------------");
             ArrayList<ArrayList<Integer>> newSolution = generateNewSolution(currentSolution);
 
             if (Euclidean.getDistance(newSolution.get(2), newSolution.get(3)) < 128) {
@@ -100,28 +100,28 @@ public class RandomSearch {
                 newSolution.set(3, new ArrayList<Integer>(Arrays.asList(74, 74, 74)));
             }
             double newFitness = function.apply(newSolution);
-            System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
+            // System.out.println("New solution: " + newSolution + "\nNew fitness: " + newFitness);
 
             if (newFitness < currentFitness) {
                 currentSolution = newSolution;
                 currentFitness = newFitness;
                 currentBestImage = ca.imageContent;
             }
-            System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
+            // System.out.println("Current solution: " + currentSolution + "\nCurrent fitness: " + currentFitness);
 
             if (i == 9 || i == 99 || i == 999) {
                 String imageFileName = (i + 1) + ".png";
                 String csvFileName = (i + 1) + ".csv";
                 ca.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
                 ca.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
-                System.out.println("============================================");
+                System.out.println("================================================");
                 System.out.println((i + 1) + "th solution: " + currentSolution + "\n" + (i + 1) + "th fitness: " + currentFitness);
             } else if (i == iterations-1) {
                 String imageFileName = "final.png";
                 String csvFileName = "final.csv";
                 ca.saveScreenShot(currentBestImage, imageFileName, ALGORITHM, round);
                 ca.saveSolution2CSV(currentSolution, currentFitness, csvFileName, ALGORITHM, round);
-                System.out.println("============================================");
+                System.out.println("================================================");
                 System.out.println("Final solution: " + currentSolution + "\nFinal fitness: " + currentFitness);
             }
         }
@@ -149,11 +149,11 @@ public class RandomSearch {
     }
 
     public static void main(String[] args) {
-        int iterations = 10;
-        int rounds = 1;
+        int iterations = 10;  // number of screenshots
+        int rounds = 1; // number of rounds, 10 rounds are needed for the final report
         for (int i = 0; i < rounds; i++) {
             int round = i + 1;
-            System.out.println("Round: " + round);
+            System.out.println("*************** Round: " + round + "*********************");
             simpleAppSearch(currentSolution -> sa.runApp(currentSolution), iterations, round);
             System.out.println("###############################################\n");
             calculatorSearch(currentSolution -> ca.runApp(currentSolution), iterations, round);

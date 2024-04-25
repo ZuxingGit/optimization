@@ -59,7 +59,7 @@ public class Capture {
         try {
             // Create the directory if it doesn't exist, for storing the screenshots
             File directory = new File(this.path.concat(algorithm).concat("/round").concat(Integer.toString(round)));
-            System.out.println("Directory: " + directory);
+            // System.out.println("Directory: " + directory);
             if (!directory.exists()) {
                 directory.mkdirs(); // Create directory and parent directories if necessary
             }
@@ -74,7 +74,7 @@ public class Capture {
         try {
             // Create the directory if it doesn't exist, for storing the screenshots
             File directory = new File(this.path.concat(algorithm).concat("/round").concat(Integer.toString(round)));
-            System.out.println("Directory: " + directory);
+            // System.out.println("Directory: " + directory);
             if (!directory.exists()) {
                 directory.mkdirs(); // Create directory and parent directories if necessary
             }
