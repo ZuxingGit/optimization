@@ -83,13 +83,53 @@ public class CalculatorLauncher {
      * Save the BufferedImage of the image to a file
      * @param currentBestImage
      * @param fileName
+     * @param round 
+     * @param algorithm 
      */
-    public void saveScreenShot(BufferedImage currentBestImage, String fileName) {
+    public void saveScreenShot(BufferedImage currentBestImage, String fileName, String algorithm, int round) {
         if (currentBestImage == null) { // if null then save current scrShot content
-            capture.saveScreenShot(imageContent, fileName);
+            capture.saveScreenShot(imageContent, fileName, algorithm, round);
         } else {
-            capture.saveScreenShot(currentBestImage, fileName);
+            capture.saveScreenShot(currentBestImage, fileName, algorithm, round);
         }
+    }
+
+
+    public void saveSolution2CSV(ArrayList<ArrayList<Integer>> currentSolution, double currentFitness,
+            String csvFileName, String algorithm, int round) {
+        // guiComponents contains GUI components' name.
+        ArrayList<String> guiComponents = new ArrayList<>();
+        guiComponents.add("mainFrameColor"); // both apps
+        guiComponents.add("jButton1");// both apps
+        guiComponents.add("jButton2");
+        guiComponents.add("jButton3");
+        guiComponents.add("jButton4");
+        guiComponents.add("jButton5");
+        guiComponents.add("jButton6");
+        guiComponents.add("jButton7");
+        guiComponents.add("jButton8");
+        guiComponents.add("jButton9");
+        guiComponents.add("jButton10");
+        guiComponents.add("jButton11");
+        guiComponents.add("jButton12");
+        guiComponents.add("jButton13");
+        guiComponents.add("jButton14");
+        guiComponents.add("jButton15");
+        guiComponents.add("jButton16");
+        guiComponents.add("jButton17");
+        guiComponents.add("jButton18");
+        
+        guiComponents.add("jTextField1");// both apps
+        guiComponents.add("jTextField1TextColor");// both apps
+
+        guiComponents.add("jLabel1");// both apps
+        guiComponents.add("jPanel1");// both apps
+        guiComponents.add("jPanel2");
+        guiComponents.add("jPanel3");
+        guiComponents.add("jPanel4");
+        guiComponents.add("jPanel5");
+
+        capture.saveSolution2CSV(guiComponents, currentSolution, currentFitness, csvFileName, algorithm, round);
     }
 
     public static void changeColorAll(ArrayList<ArrayList<Integer>> RGB) {
@@ -120,44 +160,11 @@ public class CalculatorLauncher {
             guiComponents.add("jTextField1TextColor");// both apps
 
             guiComponents.add("jLabel1");// both apps
-
             guiComponents.add("jPanel1");// both apps
             guiComponents.add("jPanel2");
             guiComponents.add("jPanel3");
             guiComponents.add("jPanel4");
             guiComponents.add("jPanel5");
-
-            // ArrayList<ArrayList<Integer>> RGB = new ArrayList<>();
-            // Random randomInt = new Random();
-
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
-            // RGB.add(new ArrayList<Integer>(Arrays.asList(new Integer[]{randomInt.nextInt(256), randomInt.nextInt(256), randomInt.nextInt(256)})));
 
             saveToCSV(parentDir.concat("src/main/java/com/group1/task3/part1/guioptimiser/")
                                 .concat(TARGET_APP_COLOR), guiComponents, RGB);

@@ -316,7 +316,7 @@ public class CalculatorMainFrame extends javax.swing.JFrame {
         CalculatorMainFrame calculatorMainFrame = new CalculatorMainFrame();
         calculatorMainFrame.setVisible(true);
         
-        AppColor appColor = new AppColor(colorCsvFilename);
+        CalculatorColor appColor = new CalculatorColor(colorCsvFilename);
         calculatorMainFrame.getContentPane().setBackground(appColor.mainFrameColor);
         calculatorMainFrame.jButton1.setBackground(appColor.jButton1);
         calculatorMainFrame.jButton2.setBackground(appColor.jButton2);

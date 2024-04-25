@@ -80,7 +80,7 @@ public class SimulatedAnnealing {
         return currentSolution;
     }
 
-    public static ArrayList<ArrayList<Integer>> caculatorSearch(Function<ArrayList<ArrayList<Integer>>, Double> function, 
+    public static ArrayList<ArrayList<Integer>> calculatorSearch(Function<ArrayList<ArrayList<Integer>>, Double> function, 
                                                 int iterations, double initialTemperature, double coolingRate) {
         ArrayList<ArrayList<Integer>> currentSolution = new ArrayList<ArrayList<Integer>>();
         double temperature = initialTemperature;
@@ -190,6 +190,6 @@ public class SimulatedAnnealing {
 
         simpleAppSearch(currentSolution -> sa.runApp(currentSolution), 10, temperature, coolingRate);
         System.out.println("###############################################\n");
-        caculatorSearch(currentSolution -> ca.runApp(currentSolution), 10, temperature, coolingRate);
+        calculatorSearch(currentSolution -> ca.runApp(currentSolution), 10, temperature, coolingRate);
     }
 }

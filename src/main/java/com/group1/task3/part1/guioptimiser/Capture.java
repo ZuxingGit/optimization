@@ -10,7 +10,9 @@ import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -27,14 +29,18 @@ public class Capture {
     public Capture(String targetApp) {
         // Set the path to store the screenshots based on the target application
         if (targetApp.contains("SimpleMainFrame")) {
-            this.path = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots_simpleApp/";
+            this.path = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots/simpleApp/";
         } else if (targetApp.contains("CalculatorMainFrame")) {
-            this.path = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots_calculator/";
+            this.path = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots/calculator/";
         } else {
             this.path = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots/";
         }
     }
 
+    /**
+     * Take a screenshot of the current screen but not save it
+     * @return BufferedImage of the screen
+     */
     public BufferedImage takeScreenShot()
     {
         
@@ -48,11 +54,12 @@ public class Capture {
         return capture;
     }
     
-    public void saveScreenShot(BufferedImage imgData, String fileName)
+    public void saveScreenShot(BufferedImage imgData, String fileName, String algorithm, int round)
     {
         try {
             // Create the directory if it doesn't exist, for storing the screenshots
-            File directory = new File(this.path);
+            File directory = new File(this.path.concat(algorithm).concat("/round").concat(Integer.toString(round)));
+            System.out.println("Directory: " + directory);
             if (!directory.exists()) {
                 directory.mkdirs(); // Create directory and parent directories if necessary
             }
@@ -60,6 +67,30 @@ public class Capture {
             ImageIO.write(imgData, "png", new File(directory, fileName));
         } catch (IOException ex) {
             Logger.getLogger(Capture.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void saveSolution2CSV(ArrayList<String> guiComponents, ArrayList<ArrayList<Integer>> solution, double currentFitness, String csvFileName, String algorithm, int round) {
+        try {
+            // Create the directory if it doesn't exist, for storing the screenshots
+            File directory = new File(this.path.concat(algorithm).concat("/round").concat(Integer.toString(round)));
+            System.out.println("Directory: " + directory);
+            if (!directory.exists()) {
+                directory.mkdirs(); // Create directory and parent directories if necessary
+            }
+
+            BufferedWriter br = new BufferedWriter(new FileWriter(new File(directory, csvFileName)));
+            String line = "";
+            for (int i = 0; i < guiComponents.size(); i++) {
+                line += guiComponents.get(i).concat(",").concat(solution.get(i).toString().replace("[", "").replace("]", "").replaceAll("\\s", "")) + "\n";
+                //System.out.println(line);
+            }
+            line += "currentFitness," + currentFitness + "\n";
+            br.write(line);
+            br.flush();
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

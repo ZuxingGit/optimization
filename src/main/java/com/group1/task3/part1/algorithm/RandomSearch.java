@@ -76,7 +76,7 @@ public class RandomSearch {
         return currentSolution;
     }
 
-    public static ArrayList<ArrayList<Integer>> caculatorSearch(Function<ArrayList<ArrayList<Integer>>, Double> function, int iterations) {
+    public static ArrayList<ArrayList<Integer>> calculatorSearch(Function<ArrayList<ArrayList<Integer>>, Double> function, int iterations) {
         ArrayList<ArrayList<Integer>> currentSolution = new ArrayList<ArrayList<Integer>>();
         // currentSolution contains RGB values for each caculator GUI component.
         // All 27 components needed
@@ -156,6 +156,6 @@ public class RandomSearch {
     public static void main(String[] args) {
         simpleAppSearch(currentSolution -> sa.runApp(currentSolution), 10);
         System.out.println("###############################################\n");
-        caculatorSearch(currentSolution -> ca.runApp(currentSolution), 10);
+        calculatorSearch(currentSolution -> ca.runApp(currentSolution), 10);
     }
 }

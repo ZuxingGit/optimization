@@ -13,7 +13,7 @@ import java.nio.file.Paths;
  *
  * @author Mahmoud-Uni
  */
-public class AppColor {
+public class CalculatorColor {
 
     // list all bachground color of all GUI components.
     // Their values are retrieved from csv file.
@@ -47,7 +47,7 @@ public class AppColor {
 
     private String colorCsvFilename;
 
-    public AppColor(String colorCsvFilename) {
+    public CalculatorColor(String colorCsvFilename) {
         this.colorCsvFilename = colorCsvFilename;
         int[] RGB = readFromConfigurationFile("mainFrameColor");
         mainFrameColor = new Color(RGB[0], RGB[1], RGB[2]);

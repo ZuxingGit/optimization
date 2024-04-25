@@ -86,12 +86,27 @@ public class SimpleAppLauncher {
      * @param currentBestImage
      * @param fileName
      */
-    public void saveScreenShot(BufferedImage currentBestImage, String fileName) {
+    public void saveScreenShot(BufferedImage currentBestImage, String fileName, String algorithm, int round) {
         if (currentBestImage == null) { // if null then save current scrShot content
-            capture.saveScreenShot(imageContent, fileName);
+            capture.saveScreenShot(imageContent, fileName, algorithm, round);
         } else {
-            capture.saveScreenShot(currentBestImage, fileName);
+            capture.saveScreenShot(currentBestImage, fileName, algorithm, round);
         }
+    }
+
+    public void saveSolution2CSV(ArrayList<ArrayList<Integer>> currentSolution, double currentFitness,
+            String csvFileName, String algorithm, int round) {
+        // guiComponents contains GUI components' name.
+        ArrayList<String> guiComponents = new ArrayList<>();
+        guiComponents.add("mainFrameColor"); // both apps
+        guiComponents.add("jButton1");// both apps
+        guiComponents.add("jTextField1");// both apps
+        guiComponents.add("jTextField1TextColor");// both apps
+        guiComponents.add("jLabel1");// both apps
+        guiComponents.add("jPanel1");// both apps
+        
+        capture.saveSolution2CSV(guiComponents, currentSolution, currentFitness, csvFileName, algorithm, round);
+
     }
 
     public void changeColorAll(ArrayList<ArrayList<Integer>> RGB) {

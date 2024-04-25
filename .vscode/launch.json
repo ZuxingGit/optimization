@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SimulatedAnnealing2",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.algorithm.SimulatedAnnealing2",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "SimulatedAnnealing",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.algorithm.SimulatedAnnealing",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "RandomSearch",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.algorithm.RandomSearch",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
             "name": "HillClimbing",
             "request": "launch",
             "mainClass": "com.group1.task3.part1.algorithm.HillClimbing",
