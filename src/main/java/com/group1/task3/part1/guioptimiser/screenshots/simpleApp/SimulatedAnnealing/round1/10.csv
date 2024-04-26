@@ -1,7 +1,7 @@
-mainFrameColor,154,174,115
-jButton1,53,0,56
-jTextField1,59,167,0
-jTextField1TextColor,0,0,170
-jLabel1,156,0,0
-jPanel1,157,150,0
-currentFitness,4.05997173805521E8
+mainFrameColor,85,0,192
+jButton1,184,83,201
+jTextField1,0,0,0
+jTextField1TextColor,74,74,74
+jLabel1,3,0,82
+jPanel1,13,33,38
+currentFitness,4.3822102624953246E8

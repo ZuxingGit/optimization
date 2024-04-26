@@ -30,7 +30,7 @@ public class CalculatorLauncher {
     private static String TARGET_APP = "com.group1.task3.part1.gui.CalculatorMainFrame";
     //private static final String TARGET_APP = "simpleApp.jar";
     private static final String TARGET_APP_COLOR = "color_calculator.csv";
-    private static final int TARGET_APP_RUNNINGTIME = 1000;
+    private static final int TARGET_APP_RUNNINGTIME = 1500;
     // private static final String JAVA_COMMAND = "java -jar ";
     private static String JAVA_COMMAND = "java -cp ";
     private static String parentDir = "";
