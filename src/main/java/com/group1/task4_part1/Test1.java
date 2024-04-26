@@ -21,7 +21,7 @@ public class Test1 {
 
 
     public static void saveToCsv(double avg,double stdDev) {
-        String filePath = "NSGAII.csv";
+        String filePath = "NSGAII-output.csv";
 
         try {
             FileWriter csvWriter = new FileWriter(filePath, true);
