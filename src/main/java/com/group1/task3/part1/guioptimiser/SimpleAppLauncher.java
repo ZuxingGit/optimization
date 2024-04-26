@@ -30,7 +30,7 @@ public class SimpleAppLauncher {
     public String TARGET_APP = "com.group1.task3.part1.gui.SimpleMainFrame";
     //private static final String TARGET_APP = "simpleApp.jar";
     private static final String TARGET_APP_COLOR = "color_simpleApp.csv";
-    public final int TARGET_APP_RUNNINGTIME = 1500;
+    public final int TARGET_APP_RUNNINGTIME = 1000;
     // private static final String JAVA_COMMAND = "java -jar ";
     private static String JAVA_COMMAND = "java -cp ";
     public String parentDir = "";
