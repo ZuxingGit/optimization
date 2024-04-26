@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RunAll3Algorithms",
+            "request": "launch",
+            "mainClass": "com.group1.task3.part1.algorithm.RunAll3Algorithms",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
             "name": "SimulatedAnnealing2",
             "request": "launch",
             "mainClass": "com.group1.task3.part1.algorithm.SimulatedAnnealing2",
