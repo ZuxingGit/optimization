@@ -1,0 +1,34 @@
+# Edit the following to configure the compiler and required libraries
+CC = gcc
+LIBS =
+CFLAGS = -O3
+
+# Configure the platform-specific settings
+ifeq ($(OS),Windows_NT)
+    SEPARATOR := ;
+    CFLAGS += -DWIN32
+else
+    SEPARATOR := :
+endif
+
+CLASSPATH := ${java.class.path}
+SYSARCH := $(shell java -classpath "$(CLASSPATH)" org.moeaframework.builder.JNAInfo --sysArch)
+LIBNAME := $(shell java -classpath "$(CLASSPATH)" org.moeaframework.builder.JNAInfo --libName --problem ${problemName})
+
+# Compile the shared library
+build:
+	mkdir -p $(SYSARCH)
+	$(CC) $(CFLAGS) -c -fPIC ${problemName}.c $(LIBS)
+	$(CC) -shared -o $(SYSARCH)/$(LIBNAME) ${problemName}.o
+	javac -classpath "$(CLASSPATH)" ${problemName}.java ${problemName}Provider.java
+	
+	jar cf ${problemName}.jar *.class $(SYSARCH) META-INF
+	
+	rm -f *.o *.class
+	java -classpath "$(CLASSPATH)" org.moeaframework.builder.JNAInfo --test --problem ${problemName}
+
+clean:
+	rm -rf $(SYSARCH) ${problemName}.jar
+	
+run:
+	java -classpath "$(CLASSPATH)" Example.java

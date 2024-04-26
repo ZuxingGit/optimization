@@ -1,0 +1,30 @@
+# Edit the following to configure the compiler and required libraries
+FORTRAN = gfortran
+
+# Configure the platform-specific settings
+ifeq ($(OS),Windows_NT)
+    SEPARATOR := ;
+else
+    SEPARATOR := :
+endif
+
+CLASSPATH := ${java.class.path}
+SYSARCH := $(shell java -classpath "$(CLASSPATH)" org.moeaframework.builder.JNAInfo --sysArch)
+LIBNAME := $(shell java -classpath "$(CLASSPATH)" org.moeaframework.builder.JNAInfo --libName --problem ${problemName})
+
+# Compile the shared library
+build:
+	mkdir -p $(SYSARCH)
+	$(FORTRAN) -shared -fPIC -o $(SYSARCH)/$(LIBNAME) ${problemName}.f90
+	javac -classpath "$(CLASSPATH)" ${problemName}.java ${problemName}Provider.java
+	
+	jar cf ${problemName}.jar *.class $(SYSARCH) META-INF
+	
+	rm -f *.class
+	java -classpath "$(CLASSPATH)" org.moeaframework.builder.JNAInfo --test --problem ${problemName}
+
+clean:
+	rm -rf $(SYSARCH) ${problemName}.jar
+	
+run:
+	java -classpath "$(CLASSPATH)" Example.java
