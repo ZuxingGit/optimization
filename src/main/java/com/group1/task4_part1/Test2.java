@@ -46,7 +46,7 @@ public class Test2 {
         Plot plt = new Plot();
         plt.add("MOEAD", approximationSet);
         String currentPath = System.getProperty("user.dir");
-        String folderPath = currentPath + "/MOEAD-II-2d-pics";
+        String folderPath = currentPath + "/MOEAD-2d-pics";
 //        System.out.println(folderPath);
         File folder = new File(folderPath);
         if (!folder.exists()) {
