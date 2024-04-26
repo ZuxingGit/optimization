@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Example1",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.example.Example1",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "Example6",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.example.Example6",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
             "name": "RunAll3Algorithms",
             "request": "launch",
             "mainClass": "com.group1.task3.part1.algorithm.RunAll3Algorithms",
@@ -162,13 +176,6 @@
             "name": "SimpleMainFrame",
             "request": "launch",
             "mainClass": "com.group1.archive.calculator.src.Calculator.SimpleMainFrame",
-            "projectName": "optimization"
-        },
-        {
-            "type": "java",
-            "name": "Main",
-            "request": "launch",
-            "mainClass": "com.group1.task2.part2.Main",
             "projectName": "optimization"
         },
         {
