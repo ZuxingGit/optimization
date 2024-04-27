@@ -8,6 +8,27 @@
             "type": "java",
             "name": "Example1",
             "request": "launch",
+            "mainClass": "examples.Example1",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "Test2",
+            "request": "launch",
+            "mainClass": "com.group1.task4_part1.Test2",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "Test1",
+            "request": "launch",
+            "mainClass": "com.group1.task4_part1.Test1",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "Example1",
+            "request": "launch",
             "mainClass": "com.group1.task4.part2.example.Example1",
             "projectName": "optimization"
         },

@@ -1,3 +1,5 @@
+package com.group1.task4_part1;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

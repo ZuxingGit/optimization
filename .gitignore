@@ -21,3 +21,4 @@ target/classes
 target/classes/com/group1/task2/part1/screenOn.xlsx
 target/classes/com/group1/archive/GuiOptimiser/src/zuxingCode/task2/ExcelReader.class
 target/classes/com/group1/archive/GuiOptimiser/src/zuxingCode/task2/XlsxReader.class
+/target/
