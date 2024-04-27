@@ -10,15 +10,14 @@ import javax.imageio.ImageIO;
  */
 public class EnergyConsumptionComputer {
     double numberOfNexusPixels = 3686400;
+    // Define consumption rates for each color (in mA)
+    // check tab "data_used" in screenOn.xlsx in task1 folder
+    double redConsumptionRate = 130.7744809/numberOfNexusPixels; // Red pixel
+    double greenConsumptionRate = 141.8636958/numberOfNexusPixels; // Green pixel
+    double blueConsumptionRate = 241.2239456/numberOfNexusPixels; // Blue pixel
     
     // calculate charge consumption for one pixel
     public double calculateChargeConsumptionPerPixel(int red, int green, int blue) {
-        // Define consumption rates for each color (in mA)
-        // check tab "data_used" in screenOn.xlsx in task1 folder
-        double redConsumptionRate = 130.7744809/numberOfNexusPixels; // Red pixel
-        double greenConsumptionRate = 141.8636958/numberOfNexusPixels; // Green pixel
-        double blueConsumptionRate = 241.2239456/numberOfNexusPixels; // Blue pixel
-
         // Calculate total charge consumption for the pixel based on color values
         double totalConsumption = (red * redConsumptionRate + green * greenConsumptionRate + blue * blueConsumptionRate) / 255.0;
 
