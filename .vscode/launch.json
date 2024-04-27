@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SimpleApp_NSGA_II",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.NSGA2.SimpleApp_NSGA_II",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "SimpleApp_NSGA_II",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.example.SimpleApp_NSGA_II",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "Calculator_NSGA_II",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.example.Calculator_NSGA_II",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "SimpleApp_NSGAII",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.example.SimpleApp_NSGAII",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "CalculatorMainFrame",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.gui.CalculatorMainFrame",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "SimpleMainFrame",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.gui.SimpleMainFrame",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
             "name": "Example1",
             "request": "launch",
             "mainClass": "examples.Example1",
