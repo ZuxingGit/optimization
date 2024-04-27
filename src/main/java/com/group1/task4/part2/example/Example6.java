@@ -18,12 +18,10 @@
 package com.group1.task4.part2.example;
 
 import org.moeaframework.algorithm.NSGAII;
+import org.moeaframework.algorithm.SPEA2;
 import org.moeaframework.core.Constraint;
 import org.moeaframework.core.Problem;
 import org.moeaframework.core.Solution;
-import org.moeaframework.core.Variation;
-import org.moeaframework.core.operator.CompoundVariation;
-import org.moeaframework.core.selection.TournamentSelection;
 import org.moeaframework.core.variable.EncodingUtils;
 import org.moeaframework.core.variable.RealVariable;
 import org.moeaframework.problem.AbstractProblem;
@@ -86,6 +84,7 @@ public class Example6 {
 		Problem problem = new Srinivas();
 		
 		NSGAII algorithm = new NSGAII(problem);
+		// SPEA2 algorithm2 = new SPEA2(problem);
 
 		algorithm.run(10000);
 		
