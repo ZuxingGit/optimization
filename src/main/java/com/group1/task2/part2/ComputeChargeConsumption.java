@@ -15,9 +15,9 @@ public class ComputeChargeConsumption {
     public static double calculateChargeConsumptionPerPixel(int red, int green, int blue) {
         // Define consumption rates for each color (in mA)
         // check tab "data_used" in screenOn.xlsx in task1 folder
-        double redConsumptionRate = 130.7744809; // Red LED
-        double greenConsumptionRate = 141.8636958; // Green LED
-        double blueConsumptionRate = 241.2239456; // Blue LED
+        double redConsumptionRate = 130.7744809 / 3686400.0; // Red LED
+        double greenConsumptionRate = 141.8636958 / 3686400.0; // Green LED
+        double blueConsumptionRate = 241.2239456 / 3686400.0; // Blue LED
 
         // Calculate total charge consumption for the pixel based on color values
         double totalConsumption = (red * redConsumptionRate + green * greenConsumptionRate + blue * blueConsumptionRate) / 255.0;
