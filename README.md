@@ -1,6 +1,6 @@
 # COMP SCI 4409/7409 Search Based Software Engineering: Assignment 2
 
-### Overview
+## Overview
 This repository contains the solution code for the course of COMP SCI 4409/7409 Search Based Software Engineering for Assignment 2, the assignment aims to explore techniques for optimizing energy consumption in Android applications through a series of tasks.
 
 **Group Members**:
@@ -9,7 +9,7 @@ This repository contains the solution code for the course of COMP SCI 4409/7409 
 * a1816653, a1816653@adelaide.edu.au, Zuxing Wu
 * a1903852, a1903852@adelaide.edu.au, Weifan Liu
 
-### Instructions:
+## Instructions:
 **Development Setup**
 1. JDK: 17
 2. IDE: VS Code
