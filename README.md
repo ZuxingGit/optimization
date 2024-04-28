@@ -17,19 +17,19 @@ This repository contains the solution code for the course of COMP SCI 4409/7409 
 4. MOEAFramework version: 4.0
 
 **Task 2: Determine the Surrogate Function**
-```bash
+```console
 cd src/main/java/com/group1
 javac ComputeChargeConsumption.java
 java ComputeChargeConsumption
 ```
 
 **Task 3: Single-Objective Minimisation of Charge Consumption**
-```bash
+```console
 
 ```
 
 **Task 4: Multi-objective optimisation**
-```bash
+```console
 
 ```
 
