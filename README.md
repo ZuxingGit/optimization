@@ -46,6 +46,3 @@ java ComputeChargeConsumption
 ```console
 
 ```
-
-### Acknowledgement
-We used Copilot in our coding & debug process.
