@@ -32,7 +32,7 @@ public class CalculatorLauncher {
     private static String TARGET_APP = "com.group1.task4.part2.gui.CalculatorMainFrame";
     //private static final String TARGET_APP = "simpleApp.jar";
     private static final String TARGET_APP_COLOR = "color_calculator.csv";
-    private static final int TARGET_APP_RUNNINGTIME = 2500;
+    private static final int TARGET_APP_RUNNINGTIME = 1500;
     // private static final String JAVA_COMMAND = "java -jar ";
     private static String JAVA_COMMAND = "java -cp ";
     private static String parentDir = "";
@@ -86,8 +86,8 @@ public class CalculatorLauncher {
      * Save the BufferedImage of the image to a file
      * @param currentBestImage
      * @param fileName
-     * @param round 
-     * @param algorithm 
+     * @param round
+     * @param algorithm
      */
     public void saveScreenShot(BufferedImage currentBestImage, String fileName) {
         if (currentBestImage == null) { // if null then save current scrShot content
@@ -121,7 +121,7 @@ public class CalculatorLauncher {
         guiComponents.add("jButton16");
         guiComponents.add("jButton17");
         guiComponents.add("jButton18");
-        
+
         guiComponents.add("jTextField1");// both apps
         guiComponents.add("jTextField1TextColor");// both apps
 
@@ -158,7 +158,7 @@ public class CalculatorLauncher {
             guiComponents.add("jButton16");
             guiComponents.add("jButton17");
             guiComponents.add("jButton18");
-            
+
             guiComponents.add("jTextField1");// both apps
             guiComponents.add("jTextField1TextColor");// both apps
 

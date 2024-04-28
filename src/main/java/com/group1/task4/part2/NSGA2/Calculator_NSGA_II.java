@@ -36,7 +36,7 @@ public class Calculator_NSGA_II {
         System.out.println("==========================================================");
 
         Problem problem = new Srinivas();
-        
+
         CustomNSGAII algorithm = new CustomNSGAII(problem);
         // SPEA2 algorithm = new SPEA2(problem);
 
@@ -48,12 +48,12 @@ public class Calculator_NSGA_II {
             Population firstPopulation = algorithm.getInitialPopulation();
             // System.out.println("Initial population: " + firstPopulation.size());
             firstPopulation.saveCSV(new File(path + "firstPopulation.csv"));
-    
+
             algorithm.run(10000); //10000
             // get the final population
             Population finalPopulation = algorithm.getPopulation();
             finalPopulation.saveCSV(new File(path + "finalPopulation.csv"));
-    
+
             // algorithm.getResult().display();
             ArrayList<ArrayList<Integer>> oneSolution = new ArrayList<ArrayList<Integer>>();
             finalPopulation.iterator().forEachRemaining(solution -> {
@@ -103,22 +103,22 @@ public class Calculator_NSGA_II {
 
 			// double x = EncodingUtils.getReal(solution.getVariable(0));
 			// double y = EncodingUtils.getReal(solution.getVariable(1));
-			
+
 			// obj1: 𝚫colour
 			double f1 = Euclidean.getEuclideanDistanceSum(referenceImage, ca.imageContent);
 			// obj2: charge
 			double f2 = ca.runApp(currentSolution);
             System.out.println("--------------------------------------------------------");
 			// constraint: Euclidean distance between text and its background colors, not square root
-			double c1 = Math.pow(currentSolution.get(19).get(0)-currentSolution.get(20).get(0), 2.0) 
+			double c1 = Math.pow(currentSolution.get(19).get(0)-currentSolution.get(20).get(0), 2.0)
 						+ Math.pow(currentSolution.get(19).get(1)-currentSolution.get(20).get(1), 2.0)
 						+ Math.pow(currentSolution.get(19).get(2)-currentSolution.get(20).get(2), 2.0);
 			double c2 = f2 - referenceCharge;// charge shoule be less than referenceCharge, otherwise meaningless
-			
+
 			// set the objective values - these are being minimized
 			solution.setObjective(0, f1);
 			solution.setObjective(1, f2);
-			
+
 			// set the constraints - use the methods in the Constraint class for convenience
 			solution.setConstraint(0, Constraint.greaterThan(c1, 0));
 			solution.setConstraint(1, Constraint.lessThan(c2, 0.0));

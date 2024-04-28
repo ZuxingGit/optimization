@@ -24,7 +24,7 @@ public class SimpleAppLauncher {
     public String TARGET_APP = "com.group1.task4.part2.gui.SimpleMainFrame";
     //private static final String TARGET_APP = "simpleApp.jar";
     private static final String TARGET_APP_COLOR = "color_simpleApp.csv";
-    public final int TARGET_APP_RUNNINGTIME = 2500;
+    public final int TARGET_APP_RUNNINGTIME = 1500;
     // private static final String JAVA_COMMAND = "java -jar ";
     private static String JAVA_COMMAND = "java -cp ";
     public String parentDir = "";
@@ -38,7 +38,7 @@ public class SimpleAppLauncher {
         parentDir = getParentDir();
         //System.out.println(parentDir.concat(TARGET_APP));
     }
-    
+
     /**
      * Run the total charge consumption with the given solution
      * @param solution
@@ -104,7 +104,7 @@ public class SimpleAppLauncher {
         guiComponents.add("jTextField1TextColor");// both apps
         guiComponents.add("jLabel1");// both apps
         guiComponents.add("jPanel1");// both apps
-        
+
         capture.saveSolution2CSV(guiComponents, currentSolution, currentFitness, csvFileName, algorithm, round);
 
     }

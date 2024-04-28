@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RunAll2Part",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.NSGA2.RunAll2Part",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
+            "name": "Calculator_NSGA_II",
+            "request": "launch",
+            "mainClass": "com.group1.task4.part2.NSGA2.Calculator_NSGA_II",
+            "projectName": "optimization"
+        },
+        {
+            "type": "java",
             "name": "SimpleApp_NSGA_II",
             "request": "launch",
             "mainClass": "com.group1.task4.part2.NSGA2.SimpleApp_NSGA_II",
