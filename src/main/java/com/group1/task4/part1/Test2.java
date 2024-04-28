@@ -1,4 +1,4 @@
-package com.group1.task4_part1;
+package com.group1.task4.part1;
 
 import java.io.File;
 import java.io.FileWriter;
