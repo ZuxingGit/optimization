@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 algorithms = ["RandomSearch", "HillClimbing", "SimulatedAnnealing"]
-location = "screenshots/Calculator/"
+location = "src/main/java/com/group1/task3/part1/guioptimiser/screenshots/Calculator/"
 
 
 for alg in algorithms:
