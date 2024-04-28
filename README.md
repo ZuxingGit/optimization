@@ -11,10 +11,10 @@ This repository contains the solution code for the course of COMP SCI 4409/7409 
 
 ### Instructions:
 **Development Setup**
-JDK: 17
-IDE: VS Code
-build tool: Maven
-MOEAFramework version: 4.0
+1. JDK: 17
+2. IDE: VS Code
+3. build tool: Maven
+4. MOEAFramework version: 4.0
 
 **Task 2: Determine the Surrogate Function**
 ```console
