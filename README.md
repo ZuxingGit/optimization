@@ -14,7 +14,7 @@ This repository contains the solution code for the course of COMP SCI 4409/7409 
 1. JDK: 17
 2. IDE: VS Code
 3. Build tool: Maven
-4. MOEAFramework version: 4.0 (It's added to pom.xml)
+4. MOEAFramework version: 4.0 (It's added in pom.xml)
 
 After you set up the above environment requirements correctly, open this project with VS Code. Let it compile for about `10` seconds.
 
@@ -34,7 +34,6 @@ We store plots of our data in `src/main/java/com/group1/task3/part2/t3plots` for
 
 
 ### Task 4: Multi-Objective Optimisation
-#### Part1
 
 #### Part2
 1. Find folder: `src/main/java/com/group1/task4/part2/NSGA2`, you will see 2 files: `Calculator_NSGA_II.java, SimpleApp_NSGA_II.java`.
