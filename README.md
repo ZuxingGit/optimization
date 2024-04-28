@@ -10,31 +10,28 @@ This repository contains the solution code for the course of COMP SCI 4409/7409 
 * a1903852, a1903852@adelaide.edu.au, Weifan Liu
 
 ## Instructions
-### Development Setup
+### Development Environment
 1. JDK: 17
 2. IDE: VS Code
-3. build tool: Maven
-4. MOEAFramework version: 4.0
+3. Build tool: Maven
+4. MOEAFramework version: 4.0 (It's added to pom.xml)
 
 After you set up the above environment requirements correctly, open this project with VS Code. Let it compile for about `10` seconds.
 
-### Task 2: Determine the Surrogate Function**
-```console
-cd src/main/java/com/group1
-javac ComputeChargeConsumption.java
-java ComputeChargeConsumption
-```
+### Task 2: Determine the Surrogate Function
+1. Find folder: `/optimization/src/main/java/com/group1/task2/part2`
+2. Open `ComputeChargeConsumption.java`, and click `Run` button on the upper right corner of the window. It will process 3 example images and print output in terminal/console.
+3. You can see the information of every image: number of pixels & total charge consumption.
 
 ### Task 3: Single-Objective Minimisation of Charge Consumption 
-#### Part2
-1. Find folder: `/optimization/src/main/java/com/group1/task3/part1/algorithm`, you will see 3 algorithms' implementation:
+#### Part1
+1. Find folder: `src/main/java/com/group1/task3/part1/algorithm`, you will see 3 algorithms' implementation:
 `RandomSearch.java, HillClimbing.java, SimulatedAnnealing.java`
-2. You can open either one of these 3 files and click `Run` button on the up right corner of the window. It will start two apps' interfaces(simpleApp first), take screenshots, calculate energy consumption. The algorithm decides whether pick the current solution or just discard it.
-3. The result of running these 3 algorithms can be found in: `src/main/java/com/group1/task3/part1/guioptimiser/screenshots`. We stored the `screenshot.png`(10th, 100th, 1000th) and `colour.csv` for different Apps, algorithms and rounds(1-10).
+2. You can open either one of these 3 files and click `Run` button on the upper right corner of the window. It will start two apps' interfaces(simpleApp first), take screenshots, calculate energy consumption. The algorithm decides whether pick the current solution or just discard it.
+3. The result of running these 3 algorithms can be found in: `src/main/java/com/group1/task3/part1/guioptimiser/screenshots`. We stored the `.png`(10th, 100th, 1000th) and `.csv`(10th, 100th, 1000th) for different Apps, algorithms and rounds(1-10).
+#### Part2
+We store plots of our data in `src/main/java/com/group1/task3/part2/t3plots` for comparison.
 
-```console
-
-```
 
 ### Task 4: Multi-Objective Optimisation
 #### Part1
@@ -42,10 +39,8 @@ java ComputeChargeConsumption
 #### Part2
 1. Find folder: `src/main/java/com/group1/task4/part2/NSGA2`, you will see 2 files: `Calculator_NSGA_II.java, SimpleApp_NSGA_II.java`.
 2. You can open either of these 2 files, and click `Run` button. It will start the respective app and optimize the solution using `NSGA2` algorithm.
-3. The results of running these 2 programs are stored in `src/main/java/com/group1/task4/part2/outcomes`. It contains `population.csv` files for 1st and last generation, and `screenshots.png` of the final population.
-```console
+3. The results of running these 2 programs are stored in `src/main/java/com/group1/task4/part2/outcomes`. It contains `.csv` files for 1st and last generation, and `.png` files of the final population.
 
-```
 
 ### Acknowledgement
-We used Copilot in our coding & debug process.
+We used Copilot in our coding & debugging process.
