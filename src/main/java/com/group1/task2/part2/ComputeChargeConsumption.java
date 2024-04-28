@@ -9,15 +9,16 @@ import java.io.IOException;
  * @author Chung, Zuxing
  */
 public class ComputeChargeConsumption {
-    private static String parentDir = "";
-
+    // private static String parentDir = "";
+    static double numberOfNexusPixels = 3686400;
+    
     // Define the function to calculate charge consumption for one pixel
     public static double calculateChargeConsumptionPerPixel(int red, int green, int blue) {
         // Define consumption rates for each color (in mA)
         // check tab "data_used" in screenOn.xlsx in task1 folder
-        double redConsumptionRate = 130.7744809 / 3686400.0; // Red LED
-        double greenConsumptionRate = 141.8636958 / 3686400.0; // Green LED
-        double blueConsumptionRate = 241.2239456 / 3686400.0; // Blue LED
+        double redConsumptionRate = 130.7744809/numberOfNexusPixels; // Red pixel
+        double greenConsumptionRate = 141.8636958/numberOfNexusPixels; // Green pixel
+        double blueConsumptionRate = 241.2239456/numberOfNexusPixels; // Blue pixel
 
         // Calculate total charge consumption for the pixel based on color values
         double totalConsumption = (red * redConsumptionRate + green * greenConsumptionRate + blue * blueConsumptionRate) / 255.0;
@@ -29,7 +30,7 @@ public class ComputeChargeConsumption {
     public static BufferedImage loadImage(String imagePath) {
         BufferedImage img = null;
         File f = null;
-        parentDir = getParentDir();
+        // parentDir = getParentDir();
         // System.out.println(parentDir);
         try {
             f = new File("src/main/java/com/group1/task2/part2/" + imagePath);
