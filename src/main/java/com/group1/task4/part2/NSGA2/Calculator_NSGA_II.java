@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.moeaframework.algorithm.NSGAII;
-import org.moeaframework.algorithm.SPEA2;
 import org.moeaframework.core.Constraint;
 import org.moeaframework.core.Population;
 import org.moeaframework.core.Problem;
@@ -106,7 +105,7 @@ public class Calculator_NSGA_II {
 
 			// obj1: 𝚫colour
 			double f1 = Euclidean.getEuclideanDistanceSum(referenceImage, ca.imageContent);
-			// obj2: charge
+			// obj2: charge consumption
 			double f2 = ca.runApp(currentSolution);
             System.out.println("--------------------------------------------------------");
 			// constraint: Euclidean distance between text and its background colors, not square root

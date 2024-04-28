@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.moeaframework.algorithm.NSGAII;
-import org.moeaframework.algorithm.SPEA2;
 import org.moeaframework.core.Constraint;
 import org.moeaframework.core.Population;
 import org.moeaframework.core.Problem;
@@ -82,7 +81,7 @@ System.out.println("==========================================================")
 	public static class Srinivas extends AbstractProblem {
 
 		/**
-		 * Creates the problem with 18 decision variables, 2 objectives, and two constraints.
+		 * Creates the problem with 18(6x3) decision variables, 2 objectives, and 2 constraints.
 		 */
 		public Srinivas() {
 			super(18, 2, 2);
@@ -110,7 +109,7 @@ System.out.println("==========================================================")
 			
 			// obj1: 𝚫colour
 			double f1 = Euclidean.getEuclideanDistanceSum(referenceImage, sa.imageContent);
-			// obj2: charge
+			// obj2: charge consumption
 			double f2 = sa.runApp(currentSolution);
 			System.out.println("--------------------------------------------------------");
 			// constraint: Euclidean distance between text and its background colors, not square root
