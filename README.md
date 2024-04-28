@@ -10,6 +10,7 @@ This repository contains the solution code for the course of COMP SCI 4409/7409 
 * a1903852, a1903852@adelaide.edu.au, Weifan Liu
 
 ### Instructions:
+**Development Setup**
 JDK: 17
 IDE: VS Code
 build tool: Maven
@@ -23,7 +24,13 @@ java ComputeChargeConsumption
 ```
 
 **Task 3: Single-Objective Minimisation of Charge Consumption**
+```console
+
+```
 
 **Task 4: Multi-objective optimisation**
+```console
+
+```
 
 ### Acknowledgement
